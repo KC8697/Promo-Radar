@@ -13,6 +13,7 @@ import os
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -53,6 +54,10 @@ SCHEMA = {
 }
 
 
+class FatalError(Exception):
+    """不能重试的错误（API key 错、模型名称错等）"""
+
+
 def today_myt() -> date:
     return datetime.now(MYT).date()
 
@@ -62,13 +67,15 @@ def today_myt() -> date:
 class Gemini:
     def __init__(self, model: str, pause: float):
         from google import genai
-        from google.genai import types
+        from google.genai import errors, types
 
         key = os.environ.get("GEMINI_API_KEY")
         if not key:
             sys.exit("缺少环境变量 GEMINI_API_KEY")
-        self.client = genai.Client(api_key=key)
+        # 每次请求最多等 90 秒，避免卡死
+        self.client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=90_000))
         self.types = types
+        self.errors = errors
         self.model = model
         self.pause = pause
 
@@ -80,11 +87,28 @@ class Gemini:
                 )
                 time.sleep(self.pause)
                 return resp
-            except Exception as e:  # 429 或临时错误：等一会儿重试
-                wait = 30 * (attempt + 1)
-                print(f"  ! Gemini 出错（{e.__class__.__name__}: {str(e)[:120]}），{wait}s 后重试")
+            except self.errors.APIError as e:
+                code = getattr(e, "code", None)
+                # 4xx（除了 429 额度限制）重试也没用，直接报错停止
+                if code and 400 <= code < 500 and code != 429:
+                    raise FatalError(f"Gemini 返回 {code}：{str(e)[:300]}") from e
+                wait = 20 * (attempt + 1)
+                print(f"  ! Gemini 暂时出错（{code}），{wait}s 后重试")
                 time.sleep(wait)
+            except Exception as e:  # 超时、网络问题
+                wait = 10 * (attempt + 1)
+                print(f"  ! 请求失败（{e.__class__.__name__}），{wait}s 后重试")
+                time.sleep(wait)
+        print("  ! 重试 3 次仍失败，跳过这一条")
         return None
+
+    def check(self) -> None:
+        """开始前先用一个很小的请求测试 key 和模型名称是否正确。"""
+        print(f"测试 Gemini 连接（模型：{self.model}）…")
+        resp = self._call("回复 OK 两个字母", self.types.GenerateContentConfig(temperature=0))
+        if resp is None:
+            raise FatalError("连接 Gemini 失败，请稍后再试")
+        print("  连接正常")
 
     def search(self, query: str) -> list[dict]:
         """用 Google 搜索 grounding 查找促销。grounding 模式不支持强制 JSON，所以从文字里解析。"""
@@ -176,7 +200,7 @@ def url_ok(url: str) -> bool:
     if not url.startswith("http"):
         return False
     try:
-        r = httpx.get(url, headers=HEADERS, timeout=20, follow_redirects=True)
+        r = httpx.get(url, headers=HEADERS, timeout=8, follow_redirects=True)
         return r.status_code < 400
     except httpx.HTTPError:
         return False
@@ -205,11 +229,6 @@ def normalize(raw: dict, category: str, cfg: dict) -> dict | None:
         return None  # 已过期
 
     url = str(raw.get("url") or "").strip()
-    sources = raw.get("_sources") or []
-    link_checked = url_ok(url)
-    if not link_checked and sources:
-        url = sources[0]  # 模型给的网址打不开，就用搜索来源
-        link_checked = True
 
     key = re.sub(r"\W+", "", f"{merchant}{title}".lower())
     return {
@@ -222,8 +241,22 @@ def normalize(raw: dict, category: str, cfg: dict) -> dict | None:
         "valid_until": valid_until,
         "travel_period": str(raw.get("travel_period") or "").strip(),
         "url": url,
-        "link_checked": link_checked,
+        "link_checked": False,
+        "_sources": raw.get("_sources") or [],
     }
+
+
+def check_links(deals: list[dict]) -> None:
+    """同时检查所有链接（最多 8 个一起），打不开就换成搜索来源。"""
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(pool.map(lambda d: url_ok(d["url"]), deals))
+    for d, ok in zip(deals, results):
+        sources = d.pop("_sources", [])
+        if ok:
+            d["link_checked"] = True
+        elif sources:
+            d["url"] = sources[0]  # 模型给的网址打不开，就用搜索来源
+            d["link_checked"] = True
 
 
 def merge(existing: list[dict], fresh: list[dict], keep_days: int) -> list[dict]:
@@ -254,11 +287,21 @@ def main() -> None:
 
     cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     gem = Gemini(cfg.get("model", "gemini-flash-latest"), cfg.get("pause_seconds", 6))
+    try:
+        gem.check()
+    except FatalError as e:
+        sys.exit(f"停止：{e}")
 
     fresh: list[dict] = []
-    for item in cfg.get("search_queries", []):
-        print(f"[搜索] {item['category']}：{item['query'][:50]}")
-        for raw in gem.search(item["query"]):
+    queries = cfg.get("search_queries", [])
+    for i, item in enumerate(queries, 1):
+        print(f"[搜索 {i}/{len(queries)}] {item['category']}：{item['query'][:50]}")
+        try:
+            found = gem.search(item["query"])
+        except FatalError as e:
+            sys.exit(f"停止：{e}")
+        print(f"  得到 {len(found)} 条")
+        for raw in found:
             d = normalize(raw, item["category"], cfg)
             if d:
                 fresh.append(d)
@@ -267,11 +310,17 @@ def main() -> None:
         print(f"[网页] {page['name']}")
         text = fetch_text(page["url"])
         if text:
-            for raw in gem.extract(text, page["url"]):
+            try:
+                found = gem.extract(text, page["url"])
+            except FatalError as e:
+                sys.exit(f"停止：{e}")
+            for raw in found:
                 d = normalize(raw, page["category"], cfg)
                 if d:
                     fresh.append(d)
 
+    print(f"检查 {len(fresh)} 条促销的链接…")
+    check_links(fresh)
     print(f"本次找到 {len(fresh)} 条")
     if args.dry_run:
         print(json.dumps(fresh, ensure_ascii=False, indent=2))
