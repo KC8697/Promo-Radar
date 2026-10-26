@@ -65,7 +65,7 @@ def today_myt() -> date:
 # ───────────────────────── Gemini 调用 ─────────────────────────
 
 class Gemini:
-    def __init__(self, model: str, pause: float):
+    def __init__(self, models: list[str], pause: float):
         from google import genai
         from google.genai import errors, types
 
@@ -76,39 +76,56 @@ class Gemini:
         self.client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=90_000))
         self.types = types
         self.errors = errors
-        self.model = model
+        self.models = list(models)  # 第一个是首选，忙的话依次换下一个
         self.pause = pause
 
-    def _call(self, contents: str, config, retries: int = 3):
-        for attempt in range(retries):
+    def _try_model(self, model: str, contents: str, config, attempts: int = 2):
+        """用指定模型请求。成功返回结果；服务器忙返回 None；模型不存在返回 'missing'。"""
+        for attempt in range(attempts):
             try:
                 resp = self.client.models.generate_content(
-                    model=self.model, contents=contents, config=config
+                    model=model, contents=contents, config=config
                 )
                 time.sleep(self.pause)
                 return resp
             except self.errors.APIError as e:
                 code = getattr(e, "code", None)
-                # 4xx（除了 429 额度限制）重试也没用，直接报错停止
+                if code == 404:
+                    print(f"  ! 模型 {model} 不存在，换下一个")
+                    return "missing"
                 if code and 400 <= code < 500 and code != 429:
+                    # key 错误、权限问题等，重试也没用
                     raise FatalError(f"Gemini 返回 {code}：{str(e)[:300]}") from e
-                wait = 20 * (attempt + 1)
-                print(f"  ! Gemini 暂时出错（{code}），{wait}s 后重试")
+                wait = 15 * (attempt + 1)
+                print(f"  ! {model} 暂时出错（{code}），{wait}s 后重试")
                 time.sleep(wait)
             except Exception as e:  # 超时、网络问题
-                wait = 10 * (attempt + 1)
-                print(f"  ! 请求失败（{e.__class__.__name__}），{wait}s 后重试")
-                time.sleep(wait)
-        print("  ! 重试 3 次仍失败，跳过这一条")
+                print(f"  ! {model} 请求失败（{e.__class__.__name__}）")
+                time.sleep(10)
+        return None
+
+    def _call(self, contents: str, config):
+        for model in list(self.models):
+            result = self._try_model(model, contents, config)
+            if result == "missing":
+                self.models.remove(model)
+                continue
+            if result is not None:
+                if self.models[0] != model:  # 这个模型能用，之后优先用它
+                    self.models.remove(model)
+                    self.models.insert(0, model)
+                return result
+            print(f"  ! {model} 一直很忙，换下一个模型")
+        print("  ! 所有模型都失败，跳过这一条")
         return None
 
     def check(self) -> None:
-        """开始前先用一个很小的请求测试 key 和模型名称是否正确。"""
-        print(f"测试 Gemini 连接（模型：{self.model}）…")
+        """开始前先用一个很小的请求测试 key 和模型。"""
+        print(f"测试 Gemini 连接（模型顺序：{', '.join(self.models)}）…")
         resp = self._call("回复 OK 两个字母", self.types.GenerateContentConfig(temperature=0))
         if resp is None:
-            raise FatalError("连接 Gemini 失败，请稍后再试")
-        print("  连接正常")
+            raise FatalError("所有模型都连不上，可能是 Google 服务暂时有问题，请稍后再跑")
+        print(f"  连接正常，使用 {self.models[0]}")
 
     def search(self, query: str) -> list[dict]:
         """用 Google 搜索 grounding 查找促销。grounding 模式不支持强制 JSON，所以从文字里解析。"""
@@ -286,7 +303,8 @@ def main() -> None:
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
-    gem = Gemini(cfg.get("model", "gemini-flash-latest"), cfg.get("pause_seconds", 6))
+    models = cfg.get("models") or [cfg.get("model", "gemini-flash-latest")]
+    gem = Gemini(models, cfg.get("pause_seconds", 6))
     try:
         gem.check()
     except FatalError as e:
