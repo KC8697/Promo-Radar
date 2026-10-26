@@ -15,7 +15,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -29,7 +29,7 @@ jobs:
       - name: 扫描
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scanner/scan.py
+        run: python -u scanner/scan.py
 
       - name: 有变化就提交
         run: |
