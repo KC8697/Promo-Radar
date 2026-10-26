@@ -1,4 +1,7 @@
-"""促销雷达扫描器：用 Gemini（含 Google 搜索）找促销，整理后写入 docs/deals.json。
+"""促销雷达扫描器（免费版）
+
+流程：Google News RSS 找促销新闻 + 固定促销网页 → Gemini 免费层整理 → docs/deals.json
+不使用 Gemini 的 Google 搜索功能（免费层不提供）。
 
 用法：
     GEMINI_API_KEY=xxx python scanner/scan.py
@@ -13,9 +16,12 @@ import os
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import quote_plus
 
 import httpx
 import yaml
@@ -26,43 +32,50 @@ CONFIG_PATH = ROOT / "config.yaml"
 DEALS_PATH = ROOT / "docs" / "deals.json"
 MYT = timezone(timedelta(hours=8))
 
-FIELDS_HELP = """每个促销输出一个 JSON 对象，字段：
-- merchant: 商家/航空公司/银行名称
-- title: 一句话中文标题（不超过 30 字）
-- offer: 优惠内容，中文，写清楚折扣、价格或回扣（例如"吉隆坡→东京来回 RM899 起"）
-- conditions: 主要条件，中文，没有就写空字符串（例如"需用 UOB 信用卡，最低消费 RM500"）
-- valid_until: 促销截止日期 YYYY-MM-DD，不知道就写 null
-- travel_period: 机票/酒店的出行期间，中文，没有就写空字符串
-- url: 促销页面网址，必须是真实来源网址
-只收录目前仍有效、且马来西亚居民可以使用的促销。不要编造任何信息，不确定的字段留空。"""
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+    "Accept-Language": "en-MY,en;q=0.9,zh;q=0.8",
+}
 
-SCHEMA = {
+DEAL_SCHEMA = {
     "type": "array",
     "items": {
         "type": "object",
         "properties": {
+            "source_index": {"type": "integer"},
             "merchant": {"type": "string"},
             "title": {"type": "string"},
             "offer": {"type": "string"},
             "conditions": {"type": "string"},
             "valid_until": {"type": "string", "nullable": True},
             "travel_period": {"type": "string"},
-            "url": {"type": "string"},
         },
-        "required": ["merchant", "title", "offer", "url"],
+        "required": ["source_index", "merchant", "title", "offer"],
     },
 }
 
+FIELDS_HELP = """每个促销输出一个对象：
+- source_index: 这个促销来自哪一条资料（填资料前面的编号）
+- merchant: 商家/航空公司/银行名称
+- title: 一句话中文标题（不超过 25 字）
+- offer: 优惠内容，中文，写清楚折扣、价格或回扣（资料没写就简单描述）
+- conditions: 主要条件，中文，没有就空字符串
+- valid_until: 截止日期 YYYY-MM-DD，资料没写就 null
+- travel_period: 机票/酒店的出行期间，没有就空字符串
+规则：只收录真正的促销或优惠（不要一般新闻、财报、评论）；马来西亚居民能用的才收；
+同一个促销只写一次；不要编造资料里没有的信息。"""
+
 
 class FatalError(Exception):
-    """不能重试的错误（API key 错、模型名称错等）"""
+    """不能重试的错误（API key 错等）"""
 
 
 def today_myt() -> date:
     return datetime.now(MYT).date()
 
 
-# ───────────────────────── Gemini 调用 ─────────────────────────
+# ───────────────────────── Gemini（不含搜索功能）─────────────────────────
 
 class Gemini:
     def __init__(self, models: list[str], pause: float):
@@ -72,20 +85,16 @@ class Gemini:
         key = os.environ.get("GEMINI_API_KEY")
         if not key:
             sys.exit("缺少环境变量 GEMINI_API_KEY")
-        # 每次请求最多等 90 秒，避免卡死
         self.client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=90_000))
         self.types = types
         self.errors = errors
-        self.models = list(models)  # 第一个是首选，忙的话依次换下一个
+        self.models = list(models)
         self.pause = pause
 
-    def _try_model(self, model: str, contents: str, config, attempts: int = 2):
-        """用指定模型请求。成功返回结果；服务器忙返回 None；模型不存在返回 'missing'。"""
+    def _try_model(self, model, contents, config, attempts=2):
         for attempt in range(attempts):
             try:
-                resp = self.client.models.generate_content(
-                    model=model, contents=contents, config=config
-                )
+                resp = self.client.models.generate_content(model=model, contents=contents, config=config)
                 time.sleep(self.pause)
                 return resp
             except self.errors.APIError as e:
@@ -94,128 +103,113 @@ class Gemini:
                     print(f"  ! 模型 {model} 不存在，换下一个")
                     return "missing"
                 if code and 400 <= code < 500 and code != 429:
-                    # key 错误、权限问题等，重试也没用
                     raise FatalError(f"Gemini 返回 {code}：{str(e)[:300]}") from e
                 wait = 15 * (attempt + 1)
                 print(f"  ! {model} 暂时出错（{code}），{wait}s 后重试")
                 time.sleep(wait)
-            except Exception as e:  # 超时、网络问题
+            except Exception as e:
                 print(f"  ! {model} 请求失败（{e.__class__.__name__}）")
                 time.sleep(10)
         return None
 
-    def _call(self, contents: str, config):
+    def _call(self, contents, config):
         for model in list(self.models):
             result = self._try_model(model, contents, config)
             if result == "missing":
                 self.models.remove(model)
                 continue
             if result is not None:
-                if self.models[0] != model:  # 这个模型能用，之后优先用它
+                if self.models[0] != model:
                     self.models.remove(model)
                     self.models.insert(0, model)
                 return result
-            print(f"  ! {model} 一直很忙，换下一个模型")
-        print("  ! 所有模型都失败，跳过这一条")
+            print(f"  ! {model} 一直失败，换下一个模型")
+        print("  ! 所有模型都失败，跳过这一批")
         return None
 
-    def check(self) -> None:
-        """开始前先用一个很小的请求测试 key 和模型。"""
+    def check(self):
         print(f"测试 Gemini 连接（模型顺序：{', '.join(self.models)}）…")
-        resp = self._call("回复 OK 两个字母", self.types.GenerateContentConfig(temperature=0))
-        if resp is None:
+        if self._call("回复 OK 两个字母", self.types.GenerateContentConfig(temperature=0)) is None:
             raise FatalError("所有模型都连不上，可能是 Google 服务暂时有问题，请稍后再跑")
         print(f"  连接正常，使用 {self.models[0]}")
 
-    def search(self, query: str) -> list[dict]:
-        """用 Google 搜索 grounding 查找促销。grounding 模式不支持强制 JSON，所以从文字里解析。"""
-        t = self.types
+    def extract(self, material: str) -> list[dict]:
         prompt = (
-            f"今天是 {today_myt().isoformat()}（马来西亚时间）。请上网搜索：{query}\n\n"
-            f"{FIELDS_HELP}\n\n只输出一个 JSON 数组，不要任何其他文字。找不到就输出 []。"
+            f"今天是 {today_myt().isoformat()}（马来西亚时间）。以下是编了号的资料，请从中找出促销。\n\n"
+            f"{FIELDS_HELP}\n\n资料：\n{material}"
         )
-        cfg = t.GenerateContentConfig(
-            tools=[t.Tool(google_search=t.GoogleSearch())],
-            temperature=0.2,
+        cfg = self.types.GenerateContentConfig(
+            response_mime_type="application/json", response_schema=DEAL_SCHEMA, temperature=0.1
         )
         resp = self._call(prompt, cfg)
         if resp is None:
             return []
-        deals = parse_json_array(resp.text or "")
-        sources = grounding_urls(resp)
-        for d in deals:
-            d["_sources"] = sources
-        return deals
-
-    def extract(self, page_text: str, page_url: str) -> list[dict]:
-        """从固定网页的文字中提取促销（强制 JSON 输出）。"""
-        t = self.types
-        prompt = (
-            f"今天是 {today_myt().isoformat()}。以下是网页 {page_url} 的文字内容，"
-            f"请提取其中的促销。网页里没有具体网址的，url 就填 {page_url}。\n\n"
-            f"{FIELDS_HELP}\n\n网页内容：\n{page_text}"
-        )
-        cfg = t.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=SCHEMA,
-            temperature=0.1,
-        )
-        resp = self._call(prompt, cfg)
-        if resp is None:
+        try:
+            data = json.loads(resp.text or "[]")
+        except json.JSONDecodeError:
             return []
-        return parse_json_array(resp.text or "")
+        return [d for d in data if isinstance(d, dict)]
 
 
-def parse_json_array(text: str) -> list[dict]:
-    text = re.sub(r"```(?:json)?", "", text).strip()
-    start, end = text.find("["), text.rfind("]")
-    if start == -1 or end == -1:
-        return []
+# ───────────────────────── 资料来源 ─────────────────────────
+
+def google_news(query: str, days: int) -> list[dict]:
+    """Google News RSS 搜索马来西亚新闻，返回最近 days 天的标题和链接。"""
+    url = (
+        "https://news.google.com/rss/search?q="
+        + quote_plus(f"{query} when:{days}d")
+        + "&hl=en-MY&gl=MY&ceid=MY:en"
+    )
     try:
-        data = json.loads(text[start : end + 1])
-    except json.JSONDecodeError:
+        r = httpx.get(url, headers=HEADERS, timeout=20, follow_redirects=True)
+        r.raise_for_status()
+        root = ET.fromstring(r.content)
+    except (httpx.HTTPError, ET.ParseError) as e:
+        print(f"  ! 新闻搜索失败（{query}）：{e.__class__.__name__}")
         return []
-    return [d for d in data if isinstance(d, dict)]
+
+    cutoff = datetime.now(MYT) - timedelta(days=days)
+    items = []
+    for it in root.iter("item"):
+        title = (it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        source = (it.findtext("source") or "").strip()
+        try:
+            pub = parsedate_to_datetime(it.findtext("pubDate") or "")
+        except (TypeError, ValueError):
+            pub = None
+        if pub and pub < cutoff:
+            continue
+        desc = BeautifulSoup(it.findtext("description") or "", "html.parser").get_text(" ").strip()
+        if title and link:
+            items.append({
+                "title": title,
+                "link": link,
+                "source": source,
+                "date": pub.astimezone(MYT).date().isoformat() if pub else "",
+                "snippet": desc[:200] if desc and desc[:20] not in title else "",
+            })
+    return items
 
 
-def grounding_urls(resp) -> list[str]:
-    urls = []
-    try:
-        meta = resp.candidates[0].grounding_metadata
-        for chunk in meta.grounding_chunks or []:
-            if chunk.web and chunk.web.uri:
-                urls.append(chunk.web.uri)
-    except (AttributeError, IndexError, TypeError):
-        pass
-    return urls[:5]
-
-
-# ───────────────────────── 抓网页 ─────────────────────────
-
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/130.0 Safari/537.36",
-    "Accept-Language": "en-MY,en;q=0.9,zh;q=0.8",
-}
-
-
-def fetch_text(url: str, limit: int = 15000) -> str:
+def fetch_page_text(url: str, limit: int = 12000) -> str:
     try:
         r = httpx.get(url, headers=HEADERS, timeout=30, follow_redirects=True)
         r.raise_for_status()
     except httpx.HTTPError as e:
-        print(f"  ! 抓取失败 {url}: {e}")
+        print(f"  ! 抓取失败 {url}：{e.__class__.__name__}")
         return ""
     soup = BeautifulSoup(r.text, "html.parser")
-    for tag in soup(["script", "style", "noscript", "svg"]):
+    for tag in soup(["script", "style", "noscript", "svg", "nav", "footer"]):
         tag.decompose()
-    text = re.sub(r"\s+", " ", soup.get_text(" ")).strip()
-    return text[:limit]
+    return re.sub(r"\s+", " ", soup.get_text(" ")).strip()[:limit]
 
 
 def url_ok(url: str) -> bool:
     if not url.startswith("http"):
         return False
+    if "news.google.com" in url:
+        return True  # Google News 转址链接，浏览器打开会跳到原文
     try:
         r = httpx.get(url, headers=HEADERS, timeout=8, follow_redirects=True)
         return r.status_code < 400
@@ -225,16 +219,14 @@ def url_ok(url: str) -> bool:
 
 # ───────────────────────── 整理与合并 ─────────────────────────
 
-def normalize(raw: dict, category: str, cfg: dict) -> dict | None:
+def normalize(raw: dict, category: str, url: str, cfg: dict) -> dict | None:
     title = str(raw.get("title") or "").strip()
     merchant = str(raw.get("merchant") or "").strip()
     if not title or not merchant:
         return None
-
-    blob = " ".join(str(raw.get(k) or "") for k in ("merchant", "title", "offer", "conditions"))
-    for kw in cfg.get("exclude_keywords", []):
-        if kw.lower() in blob.lower():
-            return None
+    blob = " ".join(str(raw.get(k) or "") for k in ("merchant", "title", "offer", "conditions")).lower()
+    if any(kw.lower() in blob for kw in cfg.get("exclude_keywords", [])):
+        return None
 
     valid_until = raw.get("valid_until")
     if valid_until:
@@ -242,10 +234,8 @@ def normalize(raw: dict, category: str, cfg: dict) -> dict | None:
             valid_until = date.fromisoformat(str(valid_until)[:10]).isoformat()
         except ValueError:
             valid_until = None
-    if valid_until and date.fromisoformat(valid_until) < today_myt():
-        return None  # 已过期
-
-    url = str(raw.get("url") or "").strip()
+    if valid_until and valid_until < today_myt().isoformat():
+        return None
 
     key = re.sub(r"\W+", "", f"{merchant}{title}".lower())
     return {
@@ -259,21 +249,13 @@ def normalize(raw: dict, category: str, cfg: dict) -> dict | None:
         "travel_period": str(raw.get("travel_period") or "").strip(),
         "url": url,
         "link_checked": False,
-        "_sources": raw.get("_sources") or [],
     }
 
 
 def check_links(deals: list[dict]) -> None:
-    """同时检查所有链接（最多 8 个一起），打不开就换成搜索来源。"""
     with ThreadPoolExecutor(max_workers=8) as pool:
-        results = list(pool.map(lambda d: url_ok(d["url"]), deals))
-    for d, ok in zip(deals, results):
-        sources = d.pop("_sources", [])
-        if ok:
-            d["link_checked"] = True
-        elif sources:
-            d["url"] = sources[0]  # 模型给的网址打不开，就用搜索来源
-            d["link_checked"] = True
+        for d, ok in zip(deals, pool.map(lambda d: url_ok(d["url"]), deals)):
+            d["link_checked"] = ok
 
 
 def merge(existing: list[dict], fresh: list[dict], keep_days: int) -> list[dict]:
@@ -284,17 +266,56 @@ def merge(existing: list[dict], fresh: list[dict], keep_days: int) -> list[dict]
         d["first_seen"] = old["first_seen"] if old else today
         d["last_seen"] = today
         by_id[d["id"]] = d
-
     cutoff = (today_myt() - timedelta(days=keep_days)).isoformat()
-    kept = []
-    for d in by_id.values():
-        if d.get("valid_until"):
-            if d["valid_until"] >= today:
-                kept.append(d)
-        elif d.get("last_seen", today) >= cutoff:
-            kept.append(d)
+    kept = [
+        d for d in by_id.values()
+        if (d["valid_until"] >= today if d.get("valid_until") else d.get("last_seen", today) >= cutoff)
+    ]
     kept.sort(key=lambda d: (d.get("valid_until") or "9999", d["category"]))
     return kept
+
+
+def scan_category(gem: Gemini, cat: dict, cfg: dict) -> list[dict]:
+    """收集一个类别的所有新闻和网页，交给 Gemini 一次整理。"""
+    days = cfg.get("news_days", 10)
+    sources: list[dict] = []  # 每个元素：{"text": 给 Gemini 看的内容, "url": 链接}
+    seen_titles = set()
+
+    for q in cat.get("news_queries", []):
+        items = google_news(q, days)
+        print(f"  新闻「{q}」：{len(items)} 条")
+        for it in items:
+            k = it["title"].lower()
+            if k in seen_titles:
+                continue
+            seen_titles.add(k)
+            line = f"[{it['date']}] {it['title']}（{it['source']}）"
+            if it["snippet"]:
+                line += f" — {it['snippet']}"
+            sources.append({"text": line, "url": it["link"]})
+
+    max_news = cfg.get("max_news_per_category", 40)
+    sources = sources[:max_news]
+
+    for page in cat.get("pages", []) or []:
+        text = fetch_page_text(page["url"])
+        print(f"  网页「{page['name']}」：{'读取成功' if text else '读取失败'}")
+        if text:
+            sources.append({"text": f"网页《{page['name']}》全文：{text}", "url": page["url"]})
+
+    if not sources:
+        return []
+
+    material = "\n".join(f"{i}. {s['text']}" for i, s in enumerate(sources))
+    deals = []
+    for raw in gem.extract(material):
+        idx = raw.get("source_index")
+        if not isinstance(idx, int) or not 0 <= idx < len(sources):
+            continue  # 编号不对，可能是模型乱写，丢掉
+        d = normalize(raw, cat["category"], sources[idx]["url"], cfg)
+        if d:
+            deals.append(d)
+    return deals
 
 
 def main() -> None:
@@ -303,43 +324,25 @@ def main() -> None:
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
-    models = cfg.get("models") or [cfg.get("model", "gemini-flash-latest")]
-    gem = Gemini(models, cfg.get("pause_seconds", 6))
+    gem = Gemini(cfg.get("models") or ["gemini-flash-lite-latest"], cfg.get("pause_seconds", 5))
     try:
         gem.check()
     except FatalError as e:
         sys.exit(f"停止：{e}")
 
     fresh: list[dict] = []
-    queries = cfg.get("search_queries", [])
-    for i, item in enumerate(queries, 1):
-        print(f"[搜索 {i}/{len(queries)}] {item['category']}：{item['query'][:50]}")
+    cats = cfg.get("categories", [])
+    for i, cat in enumerate(cats, 1):
+        print(f"[{i}/{len(cats)}] {cat['category']}")
         try:
-            found = gem.search(item["query"])
+            found = scan_category(gem, cat, cfg)
         except FatalError as e:
             sys.exit(f"停止：{e}")
-        print(f"  得到 {len(found)} 条")
-        for raw in found:
-            d = normalize(raw, item["category"], cfg)
-            if d:
-                fresh.append(d)
+        print(f"  → 整理出 {len(found)} 个促销")
+        fresh.extend(found)
 
-    for page in cfg.get("fixed_pages") or []:
-        print(f"[网页] {page['name']}")
-        text = fetch_text(page["url"])
-        if text:
-            try:
-                found = gem.extract(text, page["url"])
-            except FatalError as e:
-                sys.exit(f"停止：{e}")
-            for raw in found:
-                d = normalize(raw, page["category"], cfg)
-                if d:
-                    fresh.append(d)
-
-    print(f"检查 {len(fresh)} 条促销的链接…")
+    print(f"检查 {len(fresh)} 个链接…")
     check_links(fresh)
-    print(f"本次找到 {len(fresh)} 条")
     if args.dry_run:
         print(json.dumps(fresh, ensure_ascii=False, indent=2))
         return
@@ -350,7 +353,7 @@ def main() -> None:
     deals = merge(existing, fresh, cfg.get("keep_undated_days", 21))
     out = {"updated_at": datetime.now(MYT).isoformat(timespec="minutes"), "deals": deals}
     DEALS_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"已写入 {len(deals)} 条到 {DEALS_PATH.relative_to(ROOT)}")
+    print(f"完成：网页现在有 {len(deals)} 个有效促销")
 
 
 if __name__ == "__main__":
