@@ -1,7 +1,10 @@
 # 促销雷达配置 —— 改这个文件就能增减扫描内容，不用动代码
 
-# Gemini 模型（免费层可用的 Flash 系列）。如果报错找不到模型，到 aistudio.google.com 查当前名称后改这里
-model: gemini-flash-latest
+# Gemini 模型（免费层可用的 Flash 系列），按顺序尝试：第一个忙或不存在，就自动换下一个
+models:
+  - gemini-flash-latest
+  - gemini-flash-lite-latest
+  - gemini-3.1-flash-lite
 
 # 每次调用 Gemini 之间等待的秒数，避免撞到免费层的每分钟上限
 pause_seconds: 6
