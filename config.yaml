@@ -1,0 +1,63 @@
+# 促销雷达配置 —— 改这个文件就能增减扫描内容，不用动代码
+
+# Gemini 模型（免费层可用的 Flash 系列）。如果报错找不到模型，到 aistudio.google.com 查当前名称后改这里
+model: gemini-flash-latest
+
+# 每次调用 Gemini 之间等待的秒数，避免撞到免费层的每分钟上限
+pause_seconds: 6
+
+# ── 方式一：用 Gemini 的 Google 搜索功能"扫全网" ──
+# 每条每天跑一次。免费层每月有一定数量的搜索额度，15 条 × 30 天 ≈ 450 次
+search_queries:
+  - category: 机票
+    query: 本周马来西亚出发的航空公司机票促销（AirAsia、Malaysia Airlines、Batik Air、Firefly、Scoot、Singapore Airlines、Cathay Pacific、Turkish Airlines 等），包括槟城或吉隆坡出发
+  - category: 机票
+    query: Malaysia flight sale promo this week, flights departing Penang (PEN) or Kuala Lumpur (KUL)
+  - category: 机票
+    query: 马来西亚出发的长途航线（欧洲、美国、日本、韩国、澳洲）最新特价机票
+  - category: 家私
+    query: Malaysia furniture sale this month (IKEA Malaysia, Home's Harmony, Fella Design, Courts, Harvey Norman, SSF Home, Lorenzo)
+  - category: 家私
+    query: 槟城 家私 家具 促销 本月
+  - category: 银行卡
+    query: UOB Malaysia credit card promotion this month
+  - category: 银行卡
+    query: Hong Leong Bank credit card promotion this month Malaysia
+  - category: 银行卡
+    query: AmBank credit card promotion this month Malaysia
+  - category: 银行卡
+    query: Maybank credit card promotion this month Malaysia
+  - category: 银行卡
+    query: CIMB credit card promotion this month Malaysia
+  - category: 酒店旅游
+    query: Malaysia hotel promotion this month (Agoda, Trip.com, Traveloka, Marriott, Hilton, Accor) for Malaysians
+  - category: 酒店旅游
+    query: 马来西亚旅游配套 旅行社 促销 本月 MATTA
+
+# ── 方式二：固定网页（可选）──
+# 直接抓页面文字交给 Gemini 提取。适合你常看的促销页。链接请自己核对后再加
+fixed_pages: []
+#  - category: 家私
+#    name: IKEA Malaysia 优惠页
+#    url: https://www.ikea.com/my/en/offers/
+
+# ── 过滤 ──
+# 含这些关键词的机票促销直接丢掉（航空公司或中转城市）
+exclude_keywords:
+  - Emirates
+  - Qatar Airways
+  - Etihad
+  - Saudia
+  - Gulf Air
+  - Oman Air
+  - flydubai
+  - Air Arabia
+  - Dubai
+  - Doha
+  - Abu Dhabi
+  - 迪拜
+  - 多哈
+  - 阿布扎比
+
+# 没写到期日的促销，最后一次看到后保留几天
+keep_undated_days: 21

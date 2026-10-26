@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>促销雷达</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF3F1;
+    --card: #FFFFFF;
+    --ink: #0E3B43;
+    --muted: #5E7E83;
+    --line: #D3DFDC;
+    --urgent: #C8102E;
+    --soon: #B07A00;
+    --calm: #2F7D6D;
+    --new-bg: #FFE45C;
+    --new-ink: #3A3000;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0F1E21;
+      --card: #16292D;
+      --ink: #E3ECEA;
+      --muted: #8FA9AC;
+      --line: #27403F;
+      --urgent: #FF5A6E;
+      --soon: #F0B83A;
+      --calm: #6CC7B2;
+      --new-bg: #E8CF3A;
+      --new-ink: #2A2300;
+      color-scheme: dark;
+    }
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 16px/1.6 "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  header h1 {
+    font: 900 clamp(40px, 9vw, 64px)/1 "Noto Serif SC", "Songti SC", serif;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+  .meta { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+
+  .filters {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: var(--paper);
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 20px 0 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; z-index: 10;
+    height: env(safe-area-inset-top, 0px); background: var(--paper);
+  }
+  .chip {
+    font: inherit; font-size: 15px;
+    border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+    padding: 5px 14px; border-radius: 999px; cursor: pointer;
+  }
+  .chip span { color: var(--muted); margin-left: 4px; font-size: 13px; }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .chip[aria-pressed="true"] span { color: inherit; opacity: 0.75; }
+  .chip:focus-visible, a:focus-visible { outline: 3px solid var(--soon); outline-offset: 2px; }
+
+  .sort { display: flex; gap: 16px; font-size: 14px; color: var(--muted); padding: 12px 0 4px; }
+  .sort label { cursor: pointer; }
+
+  ol.deals { list-style: none; margin: 0; padding: 0; }
+  .deal {
+    display: grid; grid-template-columns: 76px 1fr; gap: 18px;
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+  }
+  .stamp { text-align: center; color: var(--calm); padding-top: 2px; }
+  .stamp b { display: block; font: 900 40px/1 "Noto Serif SC", serif; }
+  .stamp small { font-size: 13px; }
+  .stamp.soon { color: var(--soon); }
+  .stamp.urgent { color: var(--urgent); }
+  .stamp.open b { font-size: 22px; line-height: 1.8; }
+
+  .who { font-size: 14px; color: var(--muted); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .new { background: var(--new-bg); color: var(--new-ink); font-size: 12px; font-weight: 700; padding: 1px 7px; border-radius: 3px; }
+  .deal h2 { font-size: 19px; font-weight: 700; margin: 4px 0 6px; line-height: 1.4; }
+  .offer { font-weight: 500; margin: 0; }
+  .detail { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
+  .go { display: inline-block; margin-top: 10px; color: var(--ink); font-weight: 500; font-size: 15px; text-underline-offset: 3px; }
+  .unchecked { font-size: 13px; color: var(--soon); margin-left: 8px; }
+
+  .empty { padding: 48px 0; color: var(--muted); }
+  .empty strong { display: block; color: var(--ink); font-size: 18px; margin-bottom: 6px; }
+
+  @media (max-width: 480px) {
+    .deal { grid-template-columns: 60px 1fr; gap: 14px; }
+    .stamp b { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>促销雷达</h1>
+    <p class="meta" id="meta">正在读取…</p>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="按类别筛选"></nav>
+  <div class="sort" role="radiogroup" aria-label="排序">
+    <label><input type="radio" name="sort" value="expiry" checked> 快到期的在前</label>
+    <label><input type="radio" name="sort" value="new"> 新上架的在前</label>
+  </div>
+
+  <ol class="deals" id="list"></ol>
+</div>
+
+<script>
+  const ORDER = ["机票", "酒店旅游", "银行卡", "家私"];
+  let deals = [];
+  let current = "全部";
+  let sortBy = "expiry";
+
+  const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
+  today.setHours(0, 0, 0, 0);
+
+  function daysLeft(iso) {
+    if (!iso) return null;
+    const d = new Date(iso + "T00:00:00");
+    return Math.round((d - today) / 86400000);
+  }
+  function daysSince(iso) {
+    if (!iso) return 999;
+    return Math.round((today - new Date(iso + "T00:00:00")) / 86400000);
+  }
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function renderFilters() {
+    const counts = { "全部": deals.length };
+    deals.forEach(d => counts[d.category] = (counts[d.category] || 0) + 1);
+    const cats = ["全部", ...ORDER.filter(c => counts[c]),
+      ...Object.keys(counts).filter(c => c !== "全部" && !ORDER.includes(c))];
+    const nav = document.getElementById("filters");
+    nav.replaceChildren(...cats.map(c => {
+      const b = el("button", "chip", c);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(c === current));
+      b.append(el("span", null, counts[c]));
+      b.onclick = () => { current = c; renderFilters(); renderList(); };
+      return b;
+    }));
+  }
+
+  function renderList() {
+    const list = document.getElementById("list");
+    let rows = deals.filter(d => current === "全部" || d.category === current);
+    rows.sort(sortBy === "new"
+      ? (a, b) => (b.first_seen || "").localeCompare(a.first_seen || "")
+      : (a, b) => (a.valid_until || "9999").localeCompare(b.valid_until || "9999"));
+
+    if (!rows.length) {
+      const li = el("li", "empty");
+      li.append(el("strong", null, deals.length ? "这个类别暂时没有促销" : "还没有促销数据"),
+        deals.length ? "换个类别看看。" : "扫描每天早上 8 点跑一次，跑完这里就会出现结果。");
+      list.replaceChildren(li);
+      return;
+    }
+
+    list.replaceChildren(...rows.map(d => {
+      const li = el("li", "deal");
+      const left = daysLeft(d.valid_until);
+      const stamp = el("div", "stamp");
+      if (left === null) {
+        stamp.classList.add("open");
+        stamp.append(el("b", null, "长期"), el("small", null, "无截止日"));
+      } else {
+        if (left <= 3) stamp.classList.add("urgent");
+        else if (left <= 7) stamp.classList.add("soon");
+        stamp.append(el("b", null, left === 0 ? "今" : left), el("small", null, left === 0 ? "今天截止" : "天后截止"));
+      }
+
+      const body = el("div");
+      const who = el("div", "who");
+      who.append(el("span", null, d.merchant), el("span", null, d.category));
+      if (daysSince(d.first_seen) <= 2) who.append(el("span", "new", "新"));
+      body.append(who, el("h2", null, d.title));
+      if (d.offer) body.append(el("p", "offer", d.offer));
+      const extra = [d.travel_period && "出行：" + d.travel_period, d.conditions && "条件：" + d.conditions,
+        d.valid_until && "截止：" + d.valid_until].filter(Boolean);
+      extra.forEach(t => body.append(el("p", "detail", t)));
+      if (d.url) {
+        const a = el("a", "go", "打开促销页面");
+        a.href = d.url; a.target = "_blank"; a.rel = "noopener";
+        body.append(a);
+        if (!d.link_checked) body.append(el("span", "unchecked", "链接未验证"));
+      }
+      li.append(stamp, body);
+      return li;
+    }));
+  }
+
+  document.querySelectorAll('input[name="sort"]').forEach(r =>
+    r.addEventListener("change", e => { sortBy = e.target.value; renderList(); }));
+
+  fetch("deals.json", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      deals = data.deals || [];
+      document.getElementById("meta").textContent = data.updated_at
+        ? `${deals.length} 个有效促销，最后更新 ${data.updated_at.slice(0, 16).replace("T", " ")}`
+        : "还没有跑过扫描";
+      renderFilters(); renderList();
+    })
+    .catch(() => {
+      document.getElementById("meta").textContent = "读取 deals.json 失败，请检查 GitHub Pages 设置。";
+      renderFilters(); renderList();
+    });
+</script>
+</body>
+</html>
