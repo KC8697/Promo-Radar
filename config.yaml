@@ -7,54 +7,146 @@ models:
   - gemini-flash-latest
 
 pause_seconds: 5            # 每次调用 Gemini 之间的间隔
-news_days: 10               # 只看最近几天的新闻
-max_news_per_category: 40   # 每个类别最多交给 Gemini 几条新闻
+batch_size: 40              # 每次交给 Gemini 几条资料（全部资料都会分批看完）
+news_days: 10               # Google News 只看最近几天
 keep_undated_days: 21       # 没写截止日的促销，最后一次看到后保留几天
 
-# ── 扫描类别 ──
-# news_queries：用 Google News（马来西亚版）搜索的关键词，英文效果最好
-# pages：固定促销网页（可选）。页面要能直接读到文字，用 JavaScript 动态加载的页面读不到
+# Tavily 免费额度每月 1,000 次。每 3 天扫一次 ≈ 每月 11 次，
+# 每次上限 85 → 每月最多 935 次，留一点余量。加关键词前注意 web_queries 总数不要超过 85
+tavily_per_run_limit: 85
+
+# ── 扫描类别（按重要程度排列）──
+# web_queries：Tavily 全网搜索（中英文都可以），默认搜最近一周；
+#              展览这类提前公布的活动写成 {q: 关键词, time_range: month}
+# news_queries：Google News 马来西亚英文版，免费、不占额度
+# note：给 AI 的额外筛选规则
+# pages：固定促销网页（要能直接读到文字的页面）
 categories:
-  - category: 机票
+  - category: 电子产品          # 27 次
+    note: 只收录马来西亚实体店或马来西亚网购平台可以买到的电子产品、电器、电脑、手机优惠。
+    web_queries:
+      - Senheng promotion
+      - Harvey Norman Malaysia electrical sale
+      - Courts Malaysia electrical appliance sale
+      - Samsung Malaysia promotion
+      - Apple iPhone Malaysia promotion deal
+      - Xiaomi Malaysia sale
+      - Huawei Malaysia promotion
+      - Dyson Malaysia sale
+      - Sony Malaysia promotion
+      - laptop promotion Malaysia this week
+      - smartphone deal Malaysia this week
+      - Lenovo ASUS Acer laptop promo Malaysia
+      - {q: PC Fair Penang, time_range: month}
+      - {q: PIKOM PC Fair, time_range: month}
+      - Shopee electronics sale Malaysia
+      - Lazada electronics sale Malaysia
+      - 11.11 12.12 sale electronics Malaysia
+      - aircon promotion Malaysia Daikin Panasonic
+      - refrigerator washing machine sale Malaysia
+      - TV sale Malaysia
+      - headphones earbuds deal Malaysia
+      - camera promotion Malaysia
+      - PS5 Nintendo Switch gaming console promotion Malaysia
+      - 电子产品 促销 马来西亚
+      - 电器 促销 槟城
+      - 手机 优惠 马来西亚 本周
+      - Penang electrical shop sale
     news_queries:
-      - AirAsia promo
-      - Malaysia Airlines promotion fares
-      - Batik Air promo
-      - Firefly promo fares
-      - Scoot sale Malaysia
-      - Singapore Airlines Malaysia promotion
-      - Cathay Pacific Malaysia fares sale
-      - flight sale Malaysia
-      - tiket murah promosi penerbangan
+      - electronics sale Malaysia
+      - Senheng
+      - PC Fair Malaysia
     pages: []
 
-  - category: 酒店旅游
+  - category: 机票              # 17 次
+    note: 只收录从槟城、吉隆坡或新加坡出发的航班优惠（现金特价、积分兑换、商务舱都可以），目的地以日本、韩国、中国、台湾、香港、欧洲、美国、澳洲为主。
+    web_queries:
+      - cheap flights Penang to Japan Korea promotion
+      - cheap flights Penang to Taiwan Hong Kong China promotion
+      - Kuala Lumpur to Japan Korea flight promotion
+      - Kuala Lumpur to China Taiwan Hong Kong flight sale
+      - Kuala Lumpur to Europe flight promotion
+      - Kuala Lumpur to Australia flight sale
+      - Kuala Lumpur to USA flight deal
+      - Singapore to Japan Korea flight sale
+      - Singapore to Europe USA flight promotion
+      - Malaysia Airlines promotion fares
+      - AirAsia AirAsia X sale
+      - Batik Air promotion
+      - Singapore Airlines Scoot sale
+      - Malaysia Airlines Enrich points redemption promotion
+      - KrisFlyer Asia Miles AirAsia Rewards redemption promotion
+      - business class promotion Malaysia Singapore
+      - 机票 特价 马来西亚 日本 台湾
+    news_queries:
+      - AirAsia promo
+      - Malaysia Airlines promotion
+      - Enrich Malaysia Airlines
+      - flight sale Malaysia
+    pages: []
+
+  - category: 酒店旅游          # 10 次
+    note: 国内和国外的酒店、度假村、旅游配套都可以，但必须是马来西亚居民能订的。
+    web_queries:
+      - Malaysia hotel promotion this month
+      - Penang hotel staycation promotion
+      - Langkawi resort promotion
+      - {q: MATTA Fair, time_range: month}
+      - Japan travel package Malaysia promotion
+      - Korea Taiwan tour package Malaysia promotion
+      - Europe tour package Malaysia promotion
+      - Agoda Trip.com Malaysia hotel sale
+      - Marriott Hilton Accor Asia Pacific sale
+      - 旅游配套 优惠 马来西亚
     news_queries:
       - MATTA Fair
       - hotel promotion Malaysia
-      - travel package promotion Malaysia
-      - Agoda Malaysia sale
-      - Trip.com Malaysia promo
     pages: []
 
-  - category: 银行卡
+  - category: 槟城餐饮          # 18 次
+    note: 只收录槟城州（包括槟岛和威省，例如大山脚、北海、诗布朗再也）的餐厅、咖啡馆、自助餐优惠，其他州的一律不要。
+    web_queries:
+      - Penang food promotion this week
+      - Penang restaurant promotion
+      - Penang buffet promotion
+      - Penang new restaurant opening promotion
+      - Penang cafe promotion
+      - Penang hotel buffet deal
+      - Gurney Drive Gurney Plaza restaurant promotion
+      - Bukit Mertajam food promotion
+      - Butterworth Seberang Jaya restaurant promotion
+      - 槟城 美食 优惠
+      - 槟城 餐厅 促销
+      - 槟城 自助餐 优惠
+      - 大山脚 美食 优惠
+      - 北海 威省 餐厅 促销
+      - 槟城 新开 餐厅 开张 优惠
+      - Penang dim sum seafood promotion
+      - Penang Japanese restaurant promotion
+      - Penang steamboat promotion
     news_queries:
-      - UOB Malaysia credit card promotion
-      - Hong Leong Bank credit card promotion
-      - AmBank credit card promotion
-      - Maybank credit card promotion
-      - CIMB credit card promotion
-      - credit card cashback promotion Malaysia
+      - Penang food promotion
     pages: []
 
-  - category: 家私
-    news_queries:
+  - category: 家私              # 13 次
+    note: 马来西亚全国的家私店、家具展和网购平台优惠都可以。
+    web_queries:
       - IKEA Malaysia sale
-      - furniture sale Malaysia
-      - furniture fair Penang
+      - furniture sale Malaysia this month
+      - {q: furniture fair Malaysia, time_range: month}
+      - {q: Penang furniture fair, time_range: month}
+      - {q: 槟城 家私展, time_range: month}
+      - {q: home expo Malaysia, time_range: month}
       - Home's Harmony sale
-      - Courts Malaysia sale
-      - Harvey Norman Malaysia sale
+      - mattress sale Malaysia
+      - sofa sale Malaysia
+      - Shopee Lazada furniture sale Malaysia
+      - Fella Design Lorenzo SSF Home promotion
+      - online furniture store Malaysia promotion
+      - 家私 促销 马来西亚
+    news_queries:
+      - furniture sale Malaysia
+      - IKEA Malaysia
     pages: []
 
 # ── 过滤 ──
