@@ -127,7 +127,7 @@
 </div>
 
 <script>
-  const ORDER = ["机票", "酒店旅游", "银行卡", "家私"];
+  const ORDER = ["电子产品", "机票", "酒店旅游", "槟城餐饮", "家私"];
   let deals = [];
   let current = "全部";
   let sortBy = "expiry";
@@ -177,7 +177,7 @@
     if (!rows.length) {
       const li = el("li", "empty");
       li.append(el("strong", null, deals.length ? "这个类别暂时没有促销" : "还没有促销数据"),
-        deals.length ? "换个类别看看。" : "扫描每天早上 8 点跑一次，跑完这里就会出现结果。");
+        deals.length ? "换个类别看看。" : "扫描每 3 天早上 8 点跑一次，跑完这里就会出现结果。");
       list.replaceChildren(li);
       return;
     }
@@ -198,7 +198,7 @@
       const body = el("div");
       const who = el("div", "who");
       who.append(el("span", null, d.merchant), el("span", null, d.category));
-      if (daysSince(d.first_seen) <= 2) who.append(el("span", "new", "新"));
+      if (daysSince(d.first_seen) <= 3) who.append(el("span", "new", "新"));
       body.append(who, el("h2", null, d.title));
       if (d.offer) body.append(el("p", "offer", d.offer));
       const extra = [d.travel_period && "出行：" + d.travel_period, d.conditions && "条件：" + d.conditions,
