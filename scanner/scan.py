@@ -1,7 +1,8 @@
 """促销雷达扫描器（免费版）
 
-流程：Google News RSS 找促销新闻 + 固定促销网页 → Gemini 免费层整理 → docs/deals.json
-不使用 Gemini 的 Google 搜索功能（免费层不提供）。
+流程：Tavily 全网搜索 + Google News RSS + 固定促销网页 → Gemini 免费层整理 → docs/deals.json
+- Tavily：每月 1,000 次免费搜索，程序每天有上限，不会超额
+- Gemini：只负责整理（不用它的搜索功能，免费层不提供）
 
 用法：
     GEMINI_API_KEY=xxx python scanner/scan.py
@@ -133,10 +134,11 @@ class Gemini:
             raise FatalError("所有模型都连不上，可能是 Google 服务暂时有问题，请稍后再跑")
         print(f"  连接正常，使用 {self.models[0]}")
 
-    def extract(self, material: str) -> list[dict]:
+    def extract(self, material: str, note: str = "") -> list[dict]:
+        extra = f"\n这个类别的额外规则：{note}" if note else ""
         prompt = (
             f"今天是 {today_myt().isoformat()}（马来西亚时间）。以下是编了号的资料，请从中找出促销。\n\n"
-            f"{FIELDS_HELP}\n\n资料：\n{material}"
+            f"{FIELDS_HELP}{extra}\n\n资料：\n{material}"
         )
         cfg = self.types.GenerateContentConfig(
             response_mime_type="application/json", response_schema=DEAL_SCHEMA, temperature=0.1
@@ -190,6 +192,62 @@ def google_news(query: str, days: int) -> list[dict]:
                 "snippet": desc[:200] if desc and desc[:20] not in title else "",
             })
     return items
+
+
+class Tavily:
+    """Tavily 全网搜索（每次基本搜索用 1 个额度）。"""
+
+    def __init__(self, daily_limit: int):
+        self.key = os.environ.get("TAVILY_API_KEY", "").strip()
+        self.left = daily_limit
+        self.disabled = not self.key
+        if self.disabled:
+            print("（没有设置 TAVILY_API_KEY，跳过全网搜索，只用新闻）")
+
+    def search(self, query: str, time_range: str = "week", max_results: int = 5) -> list[dict]:
+        if self.disabled:
+            return []
+        if self.left <= 0:
+            print(f"  ! 这次的 Tavily 搜索上限已用完，跳过「{query}」")
+            return []
+        self.left -= 1
+        try:
+            r = httpx.post(
+                "https://api.tavily.com/search",
+                headers={"Authorization": f"Bearer {self.key}"},
+                json={
+                    "query": query,
+                    "search_depth": "basic",   # 1 个额度
+                    "max_results": max_results,
+                    "time_range": time_range,
+                    "country": "malaysia",     # 优先马来西亚的结果
+                },
+                timeout=40,
+            )
+        except httpx.HTTPError as e:
+            print(f"  ! Tavily 请求失败（{e.__class__.__name__}）")
+            return []
+        if r.status_code in (401, 403):
+            print("  ! Tavily key 无效，之后的全网搜索全部跳过（请检查 GitHub Secret）")
+            self.disabled = True
+            return []
+        if r.status_code >= 400:
+            print(f"  ! Tavily 返回 {r.status_code}：{r.text[:150]}")
+            if r.status_code in (429, 432, 433):  # 额度用完或太频繁
+                self.disabled = True
+            return []
+        out = []
+        for it in r.json().get("results", []):
+            url = (it.get("url") or "").strip()
+            title = (it.get("title") or "").strip()
+            if url and title:
+                out.append({
+                    "title": title,
+                    "url": url,
+                    "content": re.sub(r"\s+", " ", it.get("content") or "")[:500],
+                    "date": (it.get("published_date") or "")[:10],
+                })
+        return out
 
 
 def fetch_page_text(url: str, limit: int = 12000) -> str:
@@ -275,47 +333,70 @@ def merge(existing: list[dict], fresh: list[dict], keep_days: int) -> list[dict]
     return kept
 
 
-def scan_category(gem: Gemini, cat: dict, cfg: dict) -> list[dict]:
-    """收集一个类别的所有新闻和网页，交给 Gemini 一次整理。"""
-    days = cfg.get("news_days", 10)
+def scan_category(gem: Gemini, tav: Tavily, cat: dict, cfg: dict) -> list[dict]:
+    """收集一个类别的全网搜索结果、新闻和网页，分批交给 Gemini 整理。"""
     sources: list[dict] = []  # 每个元素：{"text": 给 Gemini 看的内容, "url": 链接}
-    seen_titles = set()
+    seen = set()
 
-    for q in cat.get("news_queries", []):
+    def add(key: str, text: str, url: str) -> None:
+        k = key.lower().strip()
+        if k and k not in seen:
+            seen.add(k)
+            sources.append({"text": text, "url": url})
+
+    # 1) Tavily 全网搜索
+    for q in cat.get("web_queries", []) or []:
+        if isinstance(q, dict):
+            query, tr = q["q"], q.get("time_range", "week")
+        else:
+            query, tr = q, "week"
+        before = tav.left
+        items = tav.search(query, time_range=tr)
+        if tav.left < before:  # 真的有搜索才显示
+            print(f"  全网「{query}」：{len(items)} 条")
+        for it in items:
+            line = f"{it['title']}（{it['url'].split('/')[2]}"
+            line += f"，{it['date']}）" if it["date"] else "）"
+            if it["content"]:
+                line += f" — {it['content']}"
+            add(it["url"], line, it["url"])
+
+    # 2) Google News
+    days = cfg.get("news_days", 10)
+    for q in cat.get("news_queries", []) or []:
         items = google_news(q, days)
         print(f"  新闻「{q}」：{len(items)} 条")
         for it in items:
-            k = it["title"].lower()
-            if k in seen_titles:
-                continue
-            seen_titles.add(k)
             line = f"[{it['date']}] {it['title']}（{it['source']}）"
             if it["snippet"]:
                 line += f" — {it['snippet']}"
-            sources.append({"text": line, "url": it["link"]})
+            add(it["title"], line, it["link"])
 
-    max_news = cfg.get("max_news_per_category", 40)
-    sources = sources[:max_news]
-
+    # 3) 固定网页
     for page in cat.get("pages", []) or []:
         text = fetch_page_text(page["url"])
         print(f"  网页「{page['name']}」：{'读取成功' if text else '读取失败'}")
         if text:
-            sources.append({"text": f"网页《{page['name']}》全文：{text}", "url": page["url"]})
+            add(page["url"], f"网页《{page['name']}》全文：{text}", page["url"])
 
     if not sources:
         return []
 
-    material = "\n".join(f"{i}. {s['text']}" for i, s in enumerate(sources))
+    # 分批交给 Gemini，每批最多 batch_size 条，全部资料都会被看到
+    size = cfg.get("batch_size", 40)
     deals = []
-    for raw in gem.extract(material):
-        idx = raw.get("source_index")
-        if not isinstance(idx, int) or not 0 <= idx < len(sources):
-            continue  # 编号不对，可能是模型乱写，丢掉
-        d = normalize(raw, cat["category"], sources[idx]["url"], cfg)
-        if d:
-            deals.append(d)
-    return deals
+    for start in range(0, len(sources), size):
+        batch = sources[start : start + size]
+        material = "\n".join(f"{i}. {s['text']}" for i, s in enumerate(batch))
+        for raw in gem.extract(material, cat.get("note", "")):
+            idx = raw.get("source_index")
+            if not isinstance(idx, int) or not 0 <= idx < len(batch):
+                continue  # 编号不对，可能是模型乱写，丢掉
+            d = normalize(raw, cat["category"], batch[idx]["url"], cfg)
+            if d:
+                deals.append(d)
+    # 同一个促销可能在不同批次出现，按 id 去重
+    return list({d["id"]: d for d in deals}.values())
 
 
 def main() -> None:
@@ -330,17 +411,21 @@ def main() -> None:
     except FatalError as e:
         sys.exit(f"停止：{e}")
 
+    limit = cfg.get("tavily_per_run_limit", cfg.get("tavily_daily_limit", 30))
+    tav = Tavily(limit)
     fresh: list[dict] = []
     cats = cfg.get("categories", [])
     for i, cat in enumerate(cats, 1):
         print(f"[{i}/{len(cats)}] {cat['category']}")
         try:
-            found = scan_category(gem, cat, cfg)
+            found = scan_category(gem, tav, cat, cfg)
         except FatalError as e:
             sys.exit(f"停止：{e}")
         print(f"  → 整理出 {len(found)} 个促销")
         fresh.extend(found)
 
+    if not tav.disabled or tav.key:
+        print(f"这次用了 {limit - tav.left} 次 Tavily 搜索（上限 {limit}）")
     print(f"检查 {len(fresh)} 个链接…")
     check_links(fresh)
     if args.dry_run:
