@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-27T22:53+08:00",
+  "updated_at": "2026-10-28T12:32+08:00",
   "deals": [
     {
       "id": "b5bffb7e42ad",
@@ -42,6 +42,20 @@
       "link_checked": true,
       "first_seen": "2026-10-27",
       "last_seen": "2026-10-27"
+    },
+    {
+      "id": "ae6683c109af",
+      "category": "家私",
+      "merchant": "淘宝马来西亚",
+      "title": "淘宝11.11大促包邮4亿商品",
+      "offer": "4亿件商品免运费，并提供AI购物功能",
+      "conditions": "适用指定商品",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOeWxrd3RxTm9ZQWRNSTRFU01EUVdJNDRyWktOcDRoQ1hGVDE2RjR0QnFmTTRSYmxabjYwLUlqSy02V3hIMUdIUEFvb3JxNzVfdUtxbmFCclJaNnI2dFgyQV9rVFNMWURDV3A4VkxWQUlXeVZXeGE2ejc0SmNsMHpnZg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
     },
     {
       "id": "248d595e6ff1",
@@ -226,6 +240,76 @@
       "last_seen": "2026-10-27"
     },
     {
+      "id": "a37ed8e138c0",
+      "category": "机票",
+      "merchant": "AirAsia",
+      "title": "亚航推出全航线机票最高 7 折优惠",
+      "offer": "所有座位与航班最高可享 7 折优惠（最高 30% off）",
+      "conditions": "适用于年底假期及之后的出行",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPR2VjMFRYYnVpYzFSY1ZTWHJEQnpMa2ZJb3hFemtkbVlFWDNlbmVmaktqZHA5czNSNnBWcU94SHpmZnlqSGxlczVVRHZUNFMtRF9QVDFCbUhBMGRjWHVTc2Z4N1BwSWw1LTFSdkcwZmpuT0lrU192VW54VGRKTzI2TTljUHh0RXlSbUkzTm40RXk4ZkpMR2JXenRNSU9lTDdnNElZdzU2ZHhWWWN1QkZwMnhiV2pEeGsxeFlfZlpDVGJtQkhkeVR0WFUyNGhsdzFJdHRPaHU5N2NvelV0Q3BLWWFCdU5QZw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
+    },
+    {
+      "id": "c87b07d070e3",
+      "category": "机票",
+      "merchant": "Singapore Airlines",
+      "title": "Citi Prestige 预订新航机票立减",
+      "offer": "使用 Citi Prestige 信用卡预订新加坡航空机票最高可享 S$480 折扣",
+      "conditions": "限 Citi Prestige 持卡人",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPV2JGdlhTb2czV0dlSjAtVHNUTDNZS0otQUZxRnNxM1Jxd2VtR2M0cEZ5Q1lla0RHWTlmblFfRUNIbDFEb3QwQUN2SjNyUGloMHJ1LWphNFQxZTBLYnEwajNTR3lzeTZmZElVaEFza2J3WTFXU1FoQWxJNFEzRnliSVFZbGlTal9OV1NOQ2lPMA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
+    },
+    {
+      "id": "2c7e60623050",
+      "category": "机票",
+      "merchant": "AirAsia",
+      "title": "亚航豪华平躺座椅最高 7 折特惠",
+      "offer": "飞往亚洲和澳大利亚的豪华平躺座椅（Premium Flatbed）最高享 7 折优惠",
+      "conditions": "适用于飞往澳大利亚和亚洲的航班",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMi1YaGYzSEYyTHdsUzVWYlVCbkFTaG12cmZhMmNXcUlRYXBoZ1VhQ1l3TUpMZFF1QnlFRE1ISGVFTVBSSlNZOUt2YW5JdWVUY1I4bjJtSjhBWlB2VHVuRHR5eUx3VndMWnozNDN1djVfU2FlWTFibUZ2ZFFNVFNScWJIVWFkemE1MWI3RTdxeWtWRnd3MEowb0FocDhraF9RTHdWemhSUnY5dmt5NGx2RzZ3ZVlxaG4ySkNjM1B3?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
+    },
+    {
+      "id": "c940c0077269",
+      "category": "机票",
+      "merchant": "Malaysia Airlines",
+      "title": "马来西亚航空亚洲全服务航班特价",
+      "offer": "全服务亚洲航班接近经济舱价格",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSGZvdUpRbUNfVEY2LWMtZ3IweTRNVjRYZG1ybEdUQ3k1NGppanZXUWdraElET0hiUmFETlVkZm5yWGd3V1p6TGYzSHFfMHozNGM0SV9NaXVPa2tUSEs1RlBUUnJXckJMNWc1bmhROUdhNGlpQXBNaWU4dHA3ZElKR0lOZklTQQ?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
+    },
+    {
+      "id": "1fcd23b2badd",
+      "category": "机票",
+      "merchant": "Scoot",
+      "title": "酷航推出往返机票特价优惠",
+      "offer": "往返机票低至200新元以下",
+      "conditions": "从新加坡出发",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcGF0b0d4d25qUEFhcGV2LS1kVUNDZEhtcnROeFNxbkp0cGpWLXA0YTgxUmVaVVkyeFlpZmxVTnppVU1uMWhTWDV0OEx3N20yZUk4S3JGLUN1aFhyQVhTdzN4cWQ1ZUI2WVJJeXBsRkMwX2UxOUs3ZGlBT0xPSWo1aktBeVdKX0pUNUthOHQzRl9hRFlkZ2ZnLVlWdw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
+    },
+    {
       "id": "ab3166440ec9",
       "category": "电子产品",
       "merchant": "Ray-Ban / Oakley",
@@ -238,6 +322,20 @@
       "link_checked": true,
       "first_seen": "2026-10-27",
       "last_seen": "2026-10-27"
+    },
+    {
+      "id": "8d72228522cc",
+      "category": "电子产品",
+      "merchant": "Ray-Ban / Oakley",
+      "title": "Ray-Ban与Oakley Meta AI智能眼镜在大马发售",
+      "offer": "售价从 RM2,069 起",
+      "conditions": "适用于马来西亚市场",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdUlLMzBpS3dHNXExZnJzWC14V2UxQnRGLWRBbEFaM25LUWdJMndYR25nOEZ5bTRwbG8tdk5hVjFVa05PcVZRdW13SFJVX2JGY1Ztd294Qi1nYW5NRGh4aWJUU3B0eUNOeXFJRUlfUko2NVBDalhRU0RpZUVzTm5DblUxXzhxX1FB?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
     },
     {
       "id": "fe0a7356ce3d",
@@ -308,6 +406,20 @@
       "link_checked": true,
       "first_seen": "2026-10-27",
       "last_seen": "2026-10-27"
+    },
+    {
+      "id": "6803d52cf87f",
+      "category": "酒店旅游",
+      "merchant": "八打灵再也酒店",
+      "title": "PJ酒店推出周年庆餐饮优惠",
+      "offer": "推出周年庆特别餐饮优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPODlHQWZRdXhVNVlZV0YwOE1YV3FHU1BkXzVqSEFwS1NIWHdVZ29YNzRFaHZZMHp4aW51bklzT3pvbFZ0aUZyZFBTaldfVEo2NkdxLUxUWDR4X0VlZ09RVUx3WFBMTjhMQUlKR1ptMHVPdVBBNzFLMGlrQ2hLTWk2NHVsdW9KVGlabFVkWE91b252eEwzOE95b1hLNnhTVEE?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-10-28",
+      "last_seen": "2026-10-28"
     },
     {
       "id": "de8c8cd2a305",
