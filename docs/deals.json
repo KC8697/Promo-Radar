@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T12:31+08:00",
+  "updated_at": "2026-11-01T12:53+08:00",
   "deals": [
     {
       "id": "b5bffb7e42ad",
@@ -352,6 +352,48 @@
       "last_seen": "2026-10-31"
     },
     {
+      "id": "2cfde90dc1bc",
+      "category": "机票",
+      "merchant": "AirAsia",
+      "title": "亚航新加坡出发航班最高 7 折",
+      "offer": "航班最高 7 折优惠，并享受免费更改日期费用豁免",
+      "conditions": "仅限新加坡出发的旅客",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaEwxVUlFWUFnV2UxOVBsR3RDRXF5VEo5dlU3ZVQ3UVVrM3NxdDVNZ2o4MWlwZ3V0TS1ERDlJTEdnVTFtN1BRckczbGJTa1hMTXVzOExodjd5RnliLUFZdmNMOUhVTWhjS0kxSTF4TkpGdEtnUXE1eUcta3JUTDRHLUVkMGtvT0ZnLTVaaEdNcy15NWZJWVVYWGFJaEpScy1XZ0I1VXJOdXg3ZE5pZE5vdE96V1B2ei0yM0xPd1hQNFppejJaUFY0?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
+    },
+    {
+      "id": "a70de8260049",
+      "category": "机票",
+      "merchant": "Singapore Airlines",
+      "title": "花旗Prestige卡订新航最高减S$480",
+      "offer": "最高立减 S$480",
+      "conditions": "使用 Citi Prestige 信用卡",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPV2JGdlhTb2czV0dlSjAtVHNUTDNZS0otQUZxRnNxM1Jxd2VtR2M0cEZ5Q1lla0RHWTlmblFfRUNIbDFEb3QwQUN2SjNyUGloMHJ1LWphNFQxZTBLYnEwajNTR3lzeTZmZElVaEFza2J3WTFXU1FoQWxJNFEzRnliSVFZbGlTal9OV1NOQ2lPMA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
+    },
+    {
+      "id": "b817aaad28c3",
+      "category": "机票",
+      "merchant": "Singapore Airlines",
+      "title": "新加坡航空商务舱与头等舱最高减S$480",
+      "offer": "最高立减 S$480",
+      "conditions": "适用于商务舱和头等舱机票",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdmRiTFQyOFg4UHQwcEtvR2d3RWdKYnlFV0ZRSmVNeFVUbjR5NEN1M0NPRDhFUkFUYU1CWmRJNC14MGh4ZUR4WXdqMjhVclpBNEl6T21UMzRRWHN3UnExc3cyVXlDT2xwVXNzVFB0RGtnM3ItanMwaFVVcXpzeEwtbkJ4RUVEMUhBbUlIVU9HTHlXZXNSUU9XRFZ2c3lvY2l0cU5pdy11LUpZR1B3UFhST2RrNFV4R2Y3SEkwRmt2RQ?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
+    },
+    {
       "id": "ab3166440ec9",
       "category": "电子产品",
       "merchant": "Ray-Ban / Oakley",
@@ -532,6 +574,48 @@
       "link_checked": true,
       "first_seen": "2026-10-31",
       "last_seen": "2026-10-31"
+    },
+    {
+      "id": "dbf65c442018",
+      "category": "酒店旅游",
+      "merchant": "PJ hotel",
+      "title": "八打灵再也酒店推出周年餐饮优惠",
+      "offer": "周年餐饮优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPODlHQWZRdXhVNVlZV0YwOE1YV3FHU1BkXzVqSEFwS1NIWHdVZ29YNzRFaHZZMHp4aW51bklzT3pvbFZ0aUZyZFBTaldfVEo2NkdxLUxUWDR4X0VlZ09RVUx3WFBMTjhMQUlKR1ptMHVPdVBBNzFLMGlrQ2hLTWk2NHVsdW9KVGlabFVkWE91b252eEwzOE95b1hLNnhTVEE?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
+    },
+    {
+      "id": "8b99489d9e71",
+      "category": "酒店旅游",
+      "merchant": "Booking.com",
+      "title": "Booking.com 假期优惠",
+      "offer": "节省 15% 或更多",
+      "conditions": "适用于指定假期度假预订",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxON1RqNlRmQzdodElsb2ZsSVdJY3dBNU5hSFB6SjAwWkNfMEotWm83SWs0OHJlbnF5MVFGUHpmMS0wdlFyRlZBcFFvUVlLdUFGMlV6Y0tjd2NuMTRMVFNYVkVDbWZ3MTBpUHhEbURxakNuQnNRbXhpNDhCeERDSjdQTWpqN3E0Snd4WDZPNUNR?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
+    },
+    {
+      "id": "c68e03b3371c",
+      "category": "酒店旅游",
+      "merchant": "Expedia",
+      "title": "Expedia 最后一刻住宿优惠",
+      "offer": "节省高达 25%",
+      "conditions": "适用于最后一刻住宿预订",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-01",
+      "last_seen": "2026-11-01"
     },
     {
       "id": "de8c8cd2a305",
