@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-11-04T13:15+08:00",
+  "updated_at": "2026-11-07T13:01+08:00",
   "deals": [
+    {
+      "id": "4fe5f3712126",
+      "category": "家私",
+      "merchant": "Taobao",
+      "title": "淘宝双11大促：免运费且优惠券最高五折",
+      "offer": "免运费（无最低消费限制）及最高50%折扣优惠券",
+      "conditions": "仅限双11活动期间",
+      "valid_until": "2026-11-11",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBGT3pVYW1QZlRucEZpSDEtV2hUOTBwZVQzaWUxaUpQejhpQkJlakNHOTZxYnhwR3ozY2FTeHF6bUppX0w2Nms5OG8xZDBtU19pTzlvMFh0X1ZOYTg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "da12d5c29046",
+      "category": "电子产品",
+      "merchant": "Lazada",
+      "title": "Lazada 11.11 大促活动",
+      "offer": "部分产品以 RM11 的价格出售",
+      "conditions": "仅限 11.11 活动期间",
+      "valid_until": "2026-11-11",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOWFXOWpaZ1BtckllMFFySzdhbmVRU2trYTY2MGxaVlAyWTl1SE4zb2RvZ0ZMNDRPQmNmdHJmb3BHYVNURnJLWVNqTzc4MVBhYnR4VmppaXBRZ09PU1lXb2ZCU0MyUmRtanJTYWowSDZuOHBoaXF3X0NIWmFiMUJfWHhLa1BKY1g0VEZGY09UYWdpckpnS2x2V2dLWl85YnBUTmc5eWtDS2dMeHRBR19ZbjVB?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
     {
       "id": "146536da6d33",
       "category": "家私",
@@ -28,6 +56,20 @@
       "link_checked": true,
       "first_seen": "2026-11-04",
       "last_seen": "2026-11-04"
+    },
+    {
+      "id": "072b53ff1802",
+      "category": "酒店旅游",
+      "merchant": "IHG",
+      "title": "IHG 旗下新酒店积分兑换优惠",
+      "offer": "精选新开业及翻新酒店积分兑换享 15% 折扣",
+      "conditions": "仅限指定酒店",
+      "valid_until": "2027-04-30",
+      "travel_period": "截止至 2027-04-30",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRERuQ0tQM241SUQxY3FXdHl0NlRUQ2c3RVg5ZkJDRXlYMlh1RU9iQ0NrTnpKODQ4M2RQbDduZGxQd0FwLXc3OXozdmszVVNwSmZZams2V2JRazAwaWxHbHQwTF9UTmsxNXJibk15cktXRWJBRUVmQnJjUVdlSy14R3ZzQnQ5MTd0ME40cXZ5LS00TXYzd05PTnBKeUszQkIzV1lZQ0ZPZlhPeHM?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
     },
     {
       "id": "b5bffb7e42ad",
@@ -98,6 +140,34 @@
       "link_checked": true,
       "first_seen": "2026-10-31",
       "last_seen": "2026-10-31"
+    },
+    {
+      "id": "2703ebec25fe",
+      "category": "家私",
+      "merchant": "Article",
+      "title": "Article家具促销：北欧风格家具最高六折",
+      "offer": "最高60%折扣",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxORVFaUlU5YWppUnYzbi1mQXN5WENka0NzNmEyY3R2dHlrTGhtYzRVY1FsOEp2Q2xDc0Uyeko4REdUN3BrcVE2YnpSM0Y0U3VocFJtMWdrTEZkb0xETGM5bE9RZFFUam9ZZlRTcU5UZW8zaUtxdUtEOUNUcHlxdVIzVHhXZ0Zod05qTHV2WA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "f66e3be88a55",
+      "category": "家私",
+      "merchant": "IKEA",
+      "title": "宜家全球降价：1500种产品价格下调",
+      "offer": "1500种产品降价",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9HU0J2UE05bkRFUHExcERWTEpYRXNvek0zS3RPTHlVdmpJOFBrV20yV3RZblVtODdNdWRWMkZlay11NmIzU0N2dHhjNlBISEMwX1Joel9vSE9lLVF1cmtUUmFxcHU2M0dtQlMzbndqM3pkXzRtX0E?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
     },
     {
       "id": "248d595e6ff1",
@@ -436,6 +506,48 @@
       "last_seen": "2026-11-04"
     },
     {
+      "id": "6cac35a4a2b0",
+      "category": "机票",
+      "merchant": "Batik Air",
+      "title": "Batik Air 商务舱买一送一优惠",
+      "offer": "商务舱买一送一",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2RLWEtHNVBadmdqWENlenJFQ2x6eGpTZkhwS1BYS19Jdzk2YmlXeFM0S3B3bFJtdnhVc2FpYTZFM3Z6Z1lTNmJtVUJ3aEwyTDBMbWhLamxUbEhXZDNlSS0zTFZJVThlVklPeF8wTlQtOHFnRW8xMERIeHc2dC1iSDFONnJrRUwxdkQySFVQVFhfb3kza2JZRlpNS2dHNzJLdVRJQnlzMEJSTDZFM2tiRHAtREh4bTQwRnlIOA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "fd153735d98b",
+      "category": "机票",
+      "merchant": "Ethiopian Airlines",
+      "title": "埃塞俄比亚航空黑色星期五早鸟优惠",
+      "offer": "机票 10% 折扣",
+      "conditions": "黑色星期五促销",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMixgJBVV95cUxQdXFENFBrS3RMOUotNmpmZjdVaHJyU25wUml3V0gxRHc5R3M2RUtqV3VNNmEwOXJkcTJyVnNSc2FERGVnMUE1ZFF0LUNsb2t5OWM0OENnckJVbGRCcGZaZWNvNS1vdTVzU0dManVHUGhqdDU4V2EtcjVOalhsUzkybkk1aUV5c29xUEI0UnBHYWFVZFo1OGppOU4zTGdzUnlLTWdMY0JvMU1sVjB3N0d5V2dSMm4wR0ltU2JCOFlmOUsyWXktQmxPM0JKRFcwX1FUVFVSN0IzMktsVlBjLUFTOTRCVzlIYzlIb0JjOExVQ01LYW1RWXUtMm1ia1dmay14enc5QWRxRERBTFdySGN3QnlWNVFDTVNCRjhUcGg2WGFDaHZHMTBjODd4bnVpdng2Mm1vQlpad1RSWkdGaXlZLWxIQUNqdw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "2dfd80254f67",
+      "category": "机票",
+      "merchant": "Finnair",
+      "title": "以 1.35 新加坡分购买 Avios 积分",
+      "offer": "每 Avios 积分 1.35 新加坡分",
+      "conditions": "通过 Finnair 购买",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNTVg3UFlmM3BXX0lia0VBcjJjT09GMUdTNkYtVHlaLVVNT3dYWm1pZmVyVUhNOTdaYkpIUFFpa3IwSG85MUp2X0ZOYWQ4ZzNERWoyYWhPVVowS0JfVUJuM0VyWXkzdjc0ZEM4N2gwNTdKSG9tQnoyWDBQX3kwTDFGYkIyTlNuM042d3l0RlVWWVFDQVJuNlFBd21naw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
       "id": "ab3166440ec9",
       "category": "电子产品",
       "merchant": "Ray-Ban / Oakley",
@@ -672,6 +784,62 @@
       "link_checked": true,
       "first_seen": "2026-11-04",
       "last_seen": "2026-11-04"
+    },
+    {
+      "id": "ca0a11c69410",
+      "category": "酒店旅游",
+      "merchant": "Resorts World Sentosa",
+      "title": "圣淘沙名胜世界圣诞节庆优惠",
+      "offer": "提供节日景点门票及酒店住宿优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "2026年圣诞期间",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE90TW8tUFN5UTNvc21PaG16QU1XWHNIRjRYamNjTV9QUXdrZkRSQmk1Vlg1ck9KU2Z5STZHNjJWMTYtdVZKbHJZSmlTbTQ2a2I1azVaLXMxRXY4NWdXbUJQWVNreEdpb1FoQ1hKajhleFV6ai16ZXhRTVowNA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "42c559f071b2",
+      "category": "酒店旅游",
+      "merchant": "Booking.com",
+      "title": "Booking.com 假期住宿优惠",
+      "offer": "预订住宿可享 15% 折扣",
+      "conditions": "适用于假期前的住宿预订",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxON1RqNlRmQzdodElsb2ZsSVdJY3dBNU5hSFB6SjAwWkNfMEotWm83SWs0OHJlbnF5MVFGUHpmMS0wdlFyRlZBcFFvUVlLdUFGMlV6Y0tjd2NuMTRMVFNYVkVDbWZ3MTBpUHhEbURxakNuQnNRbXhpNDhCeERDSjdQTWpqN3E0Snd4WDZPNUNR?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "e1914a1cf0c1",
+      "category": "酒店旅游",
+      "merchant": "Expedia",
+      "title": "Expedia 酒店住宿促销",
+      "offer": "精选酒店住宿可享 30% 或以上折扣",
+      "conditions": "仅限指定酒店",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
+    },
+    {
+      "id": "5caec00d30e1",
+      "category": "酒店旅游",
+      "merchant": "Accor Live Limitless",
+      "title": "雅高酒店集团会员积分促销",
+      "offer": "双倍积分，每次住宿最高可获 9,000 积分",
+      "conditions": "需为 Accor Live Limitless 会员",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9fWTNRa0dYMFhzalJUa1ktaWtNSlFzdDN5Ukcyam5NTVhfR2xwUGFsVXVOaWJzV3NMeDI0aGJCZHhyQUk3RlRkdzI3aHBwdEFnTG9pX0Mzc256Z0ZlTFRSZw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-07",
+      "last_seen": "2026-11-07"
     },
     {
       "id": "de8c8cd2a305",
