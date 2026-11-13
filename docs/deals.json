@@ -1,34 +1,6 @@
 {
-  "updated_at": "2026-11-07T13:01+08:00",
+  "updated_at": "2026-11-13T13:31+08:00",
   "deals": [
-    {
-      "id": "4fe5f3712126",
-      "category": "家私",
-      "merchant": "Taobao",
-      "title": "淘宝双11大促：免运费且优惠券最高五折",
-      "offer": "免运费（无最低消费限制）及最高50%折扣优惠券",
-      "conditions": "仅限双11活动期间",
-      "valid_until": "2026-11-11",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBGT3pVYW1QZlRucEZpSDEtV2hUOTBwZVQzaWUxaUpQejhpQkJlakNHOTZxYnhwR3ozY2FTeHF6bUppX0w2Nms5OG8xZDBtU19pTzlvMFh0X1ZOYTg?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-07",
-      "last_seen": "2026-11-07"
-    },
-    {
-      "id": "da12d5c29046",
-      "category": "电子产品",
-      "merchant": "Lazada",
-      "title": "Lazada 11.11 大促活动",
-      "offer": "部分产品以 RM11 的价格出售",
-      "conditions": "仅限 11.11 活动期间",
-      "valid_until": "2026-11-11",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOWFXOWpaZ1BtckllMFFySzdhbmVRU2trYTY2MGxaVlAyWTl1SE4zb2RvZ0ZMNDRPQmNmdHJmb3BHYVNURnJLWVNqTzc4MVBhYnR4VmppaXBRZ09PU1lXb2ZCU0MyUmRtanJTYWowSDZuOHBoaXF3X0NIWmFiMUJfWHhLa1BKY1g0VEZGY09UYWdpckpnS2x2V2dLWl85YnBUTmc5eWtDS2dMeHRBR19ZbjVB?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-07",
-      "last_seen": "2026-11-07"
-    },
     {
       "id": "146536da6d33",
       "category": "家私",
@@ -42,6 +14,48 @@
       "link_checked": true,
       "first_seen": "2026-11-04",
       "last_seen": "2026-11-04"
+    },
+    {
+      "id": "1e6b91135b09",
+      "category": "酒店旅游",
+      "merchant": "Booking.com",
+      "title": "Booking.com 2026年11月促销代码与优惠",
+      "offer": "提供各类酒店预订折扣与促销代码",
+      "conditions": "",
+      "valid_until": "2026-11-30",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFA4Rlk0OEZHeGpjb29JZkgwTVhONlAtVl9wVzlnLU5aY2NBUmZxY1BYZ0xVLWpsbjVKR0FHVlhIRkVUZjlTT1hvdnUtZVd6N1lNWko3WjEyR1JUdGo3c1Y3cw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "5d0907b70d86",
+      "category": "酒店旅游",
+      "merchant": "LoyaltyLobby",
+      "title": "2026年11月精选酒店促销",
+      "offer": "汇总各大酒店集团的促销优惠",
+      "conditions": "",
+      "valid_until": "2026-11-30",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUmgwcC1mT2pmSjQ1TEJqUjN0LU5rUm1nRGhSNFZJOEZjNU9JaEpYNEdkSXZ1NDBlYjJxS0paeDdzMHJrUG5Sb3pKbERYOE96TmFpZ3VSYm9DMU5neEVpRG1nU1VuVElKRGVfeTJBaC1MWEd3U212cGtBc0NSOEZhc3dCYTBHM0NPZmFV?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "a66cf0dcab4b",
+      "category": "酒店旅游",
+      "merchant": "Best Western, Choice, GHA, Hyatt, Radisson & Wyndham",
+      "title": "2026年11月各大酒店集团促销更新",
+      "offer": "提供各品牌酒店的最新优惠活动",
+      "conditions": "",
+      "valid_until": "2026-11-30",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQ2pQSUNucU1nNENQTzQxTWtvX0FfTHpmOVE3VDBoS3FSYWwwZU1ZWDMxM1NNci1uRUZTb1R6YlJuYWp1b3I0MTFibno4OFF3bTdCWU4wOVlnQW1PLVE0TVZ4Z19XZEF5R0pqNGZ0MmRNOEtDX0JxZ0ZfQV9qbldOZ3BvcWtVdEdzdUNMTkNJbTVBVVJsVkg4TEtLVDRYeHpobThGckF2ZmNHbzFWc1pLV3VTUk9ZbVE?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
     },
     {
       "id": "fe867b638bcf",
@@ -168,6 +182,48 @@
       "link_checked": true,
       "first_seen": "2026-11-07",
       "last_seen": "2026-11-07"
+    },
+    {
+      "id": "d4103f645813",
+      "category": "家私",
+      "merchant": "Taobao",
+      "title": "淘宝双十一大促免运费及优惠券",
+      "offer": "无门槛免运费及最高50%折扣优惠券",
+      "conditions": "马来西亚用户适用",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBGT3pVYW1QZlRucEZpSDEtV2hUOTBwZVQzaWUxaUpQejhpQkJlakNHOTZxYnhwR3ozY2FTeHF6bUppX0w2Nms5OG8xZDBtU19pTzlvMFh0X1ZOYTg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "d621595fd680",
+      "category": "家私",
+      "merchant": "Ashley Furniture",
+      "title": "Ashley Furniture黑色星期五预热优惠",
+      "offer": "最高可享50%折扣",
+      "conditions": "需使用优惠券",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMUFCWFlXekZVNlVETlF1U050aXV0WWVKNzNoNGsybmpJSEZleURzX0pxMFc4VGloQ1Q2R3ctckxxdXV5emh0ZWlwNHJrQ2M5ZVRZRk9vSVJUQXAtbTMzVjA1T1E4bFFRUmRKc0V3WGVnNktvV0UtZzBYd3B1b1M4VGg4MVplUEg3MjBnNkVOMA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "d2c85a581a05",
+      "category": "家私",
+      "merchant": "IKEA Malaysia",
+      "title": "IKEA与Xbox联名YXSTABY电竞家具系列",
+      "offer": "售价从RM59起",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbmpvU3NoVUR3OTg3TU5mRWxuZk50ZFpLTGxaZVJNY015SnIwRWhuSXdDb1dKaDd4dVVuRWpBMHdpVlRuMGt6ek92TzZ4eWgwS092Qi1GcVNXZjJvX1ZLX2VTRlkzeEpST0lTSG55QzNkNkd4VWg3UmJKcGJQUEQtcDVCT0M2RExna0ZLdS10YlRMYTB0TTBmbg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
     },
     {
       "id": "248d595e6ff1",
@@ -528,10 +584,10 @@
       "conditions": "黑色星期五促销",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMixgJBVV95cUxQdXFENFBrS3RMOUotNmpmZjdVaHJyU25wUml3V0gxRHc5R3M2RUtqV3VNNmEwOXJkcTJyVnNSc2FERGVnMUE1ZFF0LUNsb2t5OWM0OENnckJVbGRCcGZaZWNvNS1vdTVzU0dManVHUGhqdDU4V2EtcjVOalhsUzkybkk1aUV5c29xUEI0UnBHYWFVZFo1OGppOU4zTGdzUnlLTWdMY0JvMU1sVjB3N0d5V2dSMm4wR0ltU2JCOFlmOUsyWXktQmxPM0JKRFcwX1FUVFVSN0IzMktsVlBjLUFTOTRCVzlIYzlIb0JjOExVQ01LYW1RWXUtMm1ia1dmay14enc5QWRxRERBTFdySGN3QnlWNVFDTVNCRjhUcGg2WGFDaHZHMTBjODd4bnVpdng2Mm1vQlpad1RSWkdGaXlZLWxIQUNqdw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQVFFuNXVvazdFWnVVeDN3LWdXcWdYTGdWbWVKOFZFbkw4VlMxLVJXYWd5RmdiWjVCSHlKUUpWSUExQVZwVlRPVzZ4N1o5TEI2SXF0ZHdiZFZldGR6WEVZM0xRaFZONnduRVJUQ2EwWVk0TDNxcFVJVl92Ymk1bEZMaWhlWTlzN25qQ1FFM3hIQXZ0eUJjREh2emQxaktySHdrYTEwRmRwS1AzUFp5bTRWMkh3?oc=5",
       "link_checked": true,
       "first_seen": "2026-11-07",
-      "last_seen": "2026-11-07"
+      "last_seen": "2026-11-13"
     },
     {
       "id": "2dfd80254f67",
@@ -546,6 +602,20 @@
       "link_checked": true,
       "first_seen": "2026-11-07",
       "last_seen": "2026-11-07"
+    },
+    {
+      "id": "e0cffc98944b",
+      "category": "机票",
+      "merchant": "Trip.com",
+      "title": "Trip.com 澳大利亚航线与酒店优惠",
+      "offer": "机票与酒店特价优惠",
+      "conditions": "仅限澳大利亚相关产品",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxObkhGazdWTjRnN3ZRVzN5TmpTV3k0UXpvRVQyT3N3Q0dmYVBPaV8teC1rZGhYS1ZoQkMwejFUUEdrZUpKU3o2N1dYbk1ubTNKQ1M1RGNBUzdBSDQ3TXUwaHVWYm1nZEZmYnk2M3FTOEhSX09qaTJwVXpucVd6aHBQVk9NM0FNVWp0bWwwYk81azNfVThSd0o5NGZtYzlnX1Jfb1MzTWowcFhULWVyYWpJV1E1SC1kYXNoNTZROWlDcWZ2aXFjelh3SkV3QkRBelVYTzBJRUFTbWU?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
     },
     {
       "id": "ab3166440ec9",
@@ -840,6 +910,48 @@
       "link_checked": true,
       "first_seen": "2026-11-07",
       "last_seen": "2026-11-07"
+    },
+    {
+      "id": "697622d5faef",
+      "category": "酒店旅游",
+      "merchant": "SAYS",
+      "title": "马来西亚乐龄人士年终优惠与折扣",
+      "offer": "提供多项针对乐龄人士的年终折扣与优惠",
+      "conditions": "仅限乐龄人士",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQkFiNllPM3ZPdXltelpvc19vR0VIaXNrWEZiYTBWLVRnVktscEtqdG5DYXl0QW05TVYwUHhORGdYelBvdTEzdWk5MnB1cUFpZGc1ekFlZ1A4d3lfRXpYNjZmblZwODJna21EZVFEek5kaXpHblVwbDBYc19yS1pzRkhfUjhmNHdI?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "7e20e5645508",
+      "category": "酒店旅游",
+      "merchant": "Agoda",
+      "title": "Agoda 大型促销活动酒店优惠",
+      "offer": "酒店预订最高可享 60% 折扣",
+      "conditions": "即将推出的促销活动",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8xZ29DX2pIRWxHekdWVUMxM0ZHY2UxYU5Ud3B6YmNNeTNNYzVSS3dKMVJtNk9NOFpXRXJaUlI5WlpFNjJFLVZzSTZ1MWxXYVlnbkoxenJBS05RTDZTRTFOOTFFUXRPQldkSGc?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
+    },
+    {
+      "id": "bc5ffca5aaf9",
+      "category": "酒店旅游",
+      "merchant": "Trip.com",
+      "title": "Trip.com 11月大型促销活动",
+      "offer": "机票、酒店及其他旅游产品优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxObkhGazdWTjRnN3ZRVzN5TmpTV3k0UXpvRVQyT3N3Q0dmYVBPaV8teC1rZGhYS1ZoQkMwejFUUEdrZUpKU3o2N1dYbk1ubTNKQ1M1RGNBUzdBSDQ3TXUwaHVWYm1nZEZmYnk2M3FTOEhSX09qaTJwVXpucVd6aHBQVk9NM0FNVWp0bWwwYk81azNfVThSd0o5NGZtYzlnX1Jfb1MzTWowcFhULWVyYWpJV1E1SC1kYXNoNTZROWlDcWZ2aXFjelh3SkV3QkRBelVYTzBJRUFTbWU?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-13",
+      "last_seen": "2026-11-13"
     },
     {
       "id": "de8c8cd2a305",
