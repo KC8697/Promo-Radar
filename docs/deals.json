@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T13:31+08:00",
+  "updated_at": "2026-11-16T13:16+08:00",
   "deals": [
     {
       "id": "146536da6d33",
@@ -224,6 +224,48 @@
       "link_checked": true,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
+    },
+    {
+      "id": "98d15c6b8da3",
+      "category": "家私",
+      "merchant": "Taobao",
+      "title": "淘宝双十一大促优惠",
+      "offer": "免运费且无最低消费，优惠券最高可享5折",
+      "conditions": "无最低消费限制",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBGT3pVYW1QZlRucEZpSDEtV2hUOTBwZVQzaWUxaUpQejhpQkJlakNHOTZxYnhwR3ozY2FTeHF6bUppX0w2Nms5OG8xZDBtU19pTzlvMFh0X1ZOYTg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
+      "id": "c34574e69b06",
+      "category": "家私",
+      "merchant": "Article",
+      "title": "Article家具年中现代风格促销",
+      "offer": "精选家具最高可享6折优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxORVFaUlU5YWppUnYzbi1mQXN5WENka0NzNmEyY3R2dHlrTGhtYzRVY1FsOEp2Q2xDc0Uyeko4REdUN3BrcVE2YnpSM0Y0U3VocFJtMWdrTEZkb0xETGM5bE9RZFFUam9ZZlRTcU5UZW8zaUtxdUtEOUNUcHlxdVIzVHhXZ0Zod05qTHV2WA?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
+      "id": "037a6bc75e16",
+      "category": "家私",
+      "merchant": "IKEA Malaysia",
+      "title": "IKEA与Xbox联名推出YXSTABY游戏家具系列",
+      "offer": "价格从RM59起",
+      "conditions": "仅限YXSTABY系列产品",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbmpvU3NoVUR3OTg3TU5mRWxuZk50ZFpLTGxaZVJNY015SnIwRWhuSXdDb1dKaDd4dVVuRWpBMHdpVlRuMGt6ek92TzZ4eWgwS092Qi1GcVNXZjJvX1ZLX2VTRlkzeEpST0lTSG55QzNkNkd4VWg3UmJKcGJQUEQtcDVCT0M2RExna0ZLdS10YlRMYTB0TTBmbg?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
     },
     {
       "id": "248d595e6ff1",
@@ -618,6 +660,34 @@
       "last_seen": "2026-11-13"
     },
     {
+      "id": "77ef18c5b606",
+      "category": "机票",
+      "merchant": "AirAsia MOVE",
+      "title": "AirAsia MOVE 11.11 大促优惠",
+      "offer": "飞往东京、首尔等地机票价格低至 RM11",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZC1BbXR0aV9WUVFVR25SMUppTENQU3NISVlqYi1fcHZCa2VaWWFqNkZLTmlpTWlZenVZRngxYndtYWJlTnBpaHF6Z2h1VldvMTlfb04yYkRRMkVRenNKdEIzaTVadGFUNkpaQ3Y3bEg5XzBEdktWdEN0UElmc21BZkotVWdNc1A1NzhvNVo4SHN4VjdhNUs1aEJjZw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
+      "id": "46ba35ce2f1a",
+      "category": "机票",
+      "merchant": "Trip.com",
+      "title": "Trip.com 11.11 大促活动",
+      "offer": "机票、酒店及景点门票最高 5 折优惠，机票价格低至 S$69 起",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPNWtwUGFzcV91TUNUU1pNeWhONkROSjZfdVFYZVBIQ093NVZMMkE2N0RaT2kzSUV1WXZTOWJ2ZzF2cnpwdXEyczVqU0pFcV9wLXBhTzRwaHJ4VWtTMTZYS1dhRVJhdkNLUkQzQTBORzhkVUNZR3lQblp0dDZFb2QtMlJnejdpOHhUc3BtNG5vVXJUV09GT0h0VUxKZDh4ZDR4dHNXRVBlSUgzZmhQVldBZEZhcTc0RG9TdEJHcVdraw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
       "id": "ab3166440ec9",
       "category": "电子产品",
       "merchant": "Ray-Ban / Oakley",
@@ -952,6 +1022,48 @@
       "link_checked": true,
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13"
+    },
+    {
+      "id": "22f7774a8de1",
+      "category": "酒店旅游",
+      "merchant": "Agoda",
+      "title": "Agoda 酒店大促最高可享 6 折优惠",
+      "offer": "酒店预订最高可享 60% 折扣",
+      "conditions": "适用于即将到来的大型促销活动",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE8xZ29DX2pIRWxHekdWVUMxM0ZHY2UxYU5Ud3B6YmNNeTNNYzVSS3dKMVJtNk9NOFpXRXJaUlI5WlpFNjJFLVZzSTZ1MWxXYVlnbkoxenJBS05RTDZTRTFOOTFFUXRPQldkSGc?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
+      "id": "4d32b39e6311",
+      "category": "酒店旅游",
+      "merchant": "Expedia",
+      "title": "Expedia 假日旅行预订最高 7 折优惠",
+      "offer": "最高可享 30% 折扣",
+      "conditions": "需使用促销代码",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
+    },
+    {
+      "id": "e44d8d01d3d5",
+      "category": "酒店旅游",
+      "merchant": "Trip.com",
+      "title": "Trip.com 黑色星期五单程机票优惠",
+      "offer": "单程机票价格低至 29 美元起",
+      "conditions": "黑色星期五促销活动",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNQnlIaExUaDJOSkJuMGhHS3VQLTR5Wk1DdWU0S2UxY1FUb2hJVVRCVkZUbmNFMGJIQUhsMXRlWTRYQ1g5dUZmWHFyOFJURWU2TkVYU0d3TWs3M1ZhTUhNbEN2OG5RVVc5eW04TVJMTXg3WHVyYjFFMHlOcnJ5YUhWU2xzc2pxaXRDMlZZdkxHYUZJazJjSkI2VzlQRDd2ZmRlV1R3UURmLXlNend1U25DX2Z1a2JaQXBKdVVrSGZYejFRMGNteVhha1RKNjZOT2dDdEIybk0tZm0?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16"
     },
     {
       "id": "de8c8cd2a305",
