@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T14:23+08:00",
+  "updated_at": "2026-11-22T13:34+08:00",
   "deals": [
     {
       "id": "146536da6d33",
@@ -30,6 +30,20 @@
       "last_seen": "2026-11-19"
     },
     {
+      "id": "f0cbccb83cb2",
+      "category": "家私",
+      "merchant": "IKEA Kuching",
+      "title": "IKEA 古晋店开幕赠送礼品",
+      "offer": "500 份免费礼品",
+      "conditions": "需在开幕期间前往古晋店",
+      "valid_until": "2026-11-27",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY2hfOUgteXlydzhRYlNYaTFja0hNZHQzeEFqSlR2aHFET0lwNHltSHpZOS14Z2RGd19vNnQ3VVlXamYzdW80aEl3NnkyY2owOU85cU9WNDdqcWZiZE5qa3lTcmgwaEZwWUJzdTNjTHh5VVlLS0wwOFJ1VC0zdVZIeDNiQ3dlRGYxR3gtT2o1Wld1cC03dS1IdlRTYW1HUElMZmJNMTFzS2VtSUlsTnhvMTEzVVY2eUpjOHc?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
+    },
+    {
       "id": "c225b488a3cc",
       "category": "机票",
       "merchant": "Singapore Airlines & Scoot",
@@ -42,6 +56,20 @@
       "link_checked": true,
       "first_seen": "2026-11-19",
       "last_seen": "2026-11-19"
+    },
+    {
+      "id": "1e606ce41379",
+      "category": "机票",
+      "merchant": "新加坡航空与酷航",
+      "title": "新航与酷航Spontaneous Escapes促销，兑换享7折",
+      "offer": "使用里程兑换机票可享30%折扣",
+      "conditions": "需在2026年11月30日前预订",
+      "valid_until": "2026-11-30",
+      "travel_period": "2026-12-01 至 2026-12-31",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdzhFS3FGUVVEaHdsb1FEMEJ1WnlEMGdZczhSZXM5YjY4R243dlV4blBXMFRNeXd3Y19IZ0VzWThvSl84ZThhZlpMRDhCd1JHN295ZDgybURMQjRhRVh1Z0pfYTFET1FZMTY5Mi1lMWNhQ0FPYmFoTzhMSXo0M2FBVmg2UHRQX3VITHJiRklqV3FJaHMwSUVhd002SGNQcEd3VEhEVThrXzNGQy1hSFZMSXFDUjJNZ2tlTnVhaVNHVm9CWlNocjBhSEM2ZkxOdjR1bTVJMw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
     },
     {
       "id": "1e6b91135b09",
@@ -126,20 +154,6 @@
       "link_checked": true,
       "first_seen": "2026-11-07",
       "last_seen": "2026-11-07"
-    },
-    {
-      "id": "4a449e20a397",
-      "category": "家私",
-      "merchant": "Taobao Malaysia",
-      "title": "淘宝大马站11.11大促",
-      "offer": "4亿件商品免运费，并推出AI购物功能",
-      "conditions": "限指定商品",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOd19WNWpyOUNHanV5T19CWnUtVXg4YzdudmVLRzNCVm00WU1ySWlybUJXMS1fOVgwWmU2UGRlVHJXczh0dzNRR3d2RUJQZjRIX2QzRENSU0ZkTFFfRHNHRGJ4Y2M3VGRESUFGbkpsRGlDU0Z2UE5QbUkxR3lBQjRVYlBmbmh6LUgxLXYyRG1pRWZ6WUN0VHp3QkU5UDE1aFRHOExsOWRZUE9fRDh2ajJjS1ZNS19jSUVoOGRBeUdwLVdaTktNVEZGOWRydlc1RWlldURHRW9WbTNVX0ZKRTRHeWM5RWJSZGFwWXVsS0g2Rk1jdkFL0gH6AUFVX3lxTE5pX3FhRWhGUkNEQndfSWpoN0EzeXhaNFJhOTg3UHNzemtmRE5LSk5TUy1QOVl1OFNEQ3NPUkVQSEpFVkptYXlVWlQ0U0xBZWVTcHFuZjB3c3NRYS00WTBBNHExNDFZOU95ZUh3Y1JoeFlwQmJ4Y0hObVVlYlYwVDBsZVJ6dnlCbHpSSC0yQTgzYlUyT0pxOTZHV2xndnhOT0djQUdRbDFlY2JZeHdtY2RKQTlEbnc0WG1ydnBvQTVoRGNYbjR1eGFnVWJ0QWwwVGtzTjVkd2EzM3RVb19OdzVaeDQyZXF2eWNzV3hwNWlJWHJ1aGc2VllTT1E?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
     },
     {
       "id": "2703ebec25fe",
@@ -268,32 +282,18 @@
       "last_seen": "2026-11-19"
     },
     {
-      "id": "6b9cc3f9cbce",
-      "category": "机票",
-      "merchant": "新加坡航空",
-      "title": "Citi Prestige 订新航机票立减高达 480 新元",
-      "offer": "立减高达 S$480",
-      "conditions": "使用 Citi Prestige 信用卡预订",
+      "id": "5fdf1e528604",
+      "category": "家私",
+      "merchant": "IKEA Malaysia",
+      "title": "IKEA x Xbox 联名游戏家具系列上市",
+      "offer": "YXSTABY 游戏家具系列，价格从 RM59 起",
+      "conditions": "",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPV2JGdlhTb2czV0dlSjAtVHNUTDNZS0otQUZxRnNxM1Jxd2VtR2M0cEZ5Q1lla0RHWTlmblFfRUNIbDFEb3QwQUN2SjNyUGloMHJ1LWphNFQxZTBLYnEwajNTR3lzeTZmZElVaEFza2J3WTFXU1FoQWxJNFEzRnliSVFZbGlTal9OV1NOQ2lPMA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbmpvU3NoVUR3OTg3TU5mRWxuZk50ZFpLTGxaZVJNY015SnIwRWhuSXdDb1dKaDd4dVVuRWpBMHdpVlRuMGt6ek92TzZ4eWgwS092Qi1GcVNXZjJvX1ZLX2VTRlkzeEpST0lTSG55QzNkNkd4VWg3UmJKcGJQUEQtcDVCT0M2RExna0ZLdS10YlRMYTB0TTBmbg?oc=5",
       "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
-    },
-    {
-      "id": "5f8b36e1c7b0",
-      "category": "机票",
-      "merchant": "新加坡航空",
-      "title": "新航商务舱与头等舱机票限时立减高达 480 新元",
-      "offer": "立减高达 S$480",
-      "conditions": "适用于商务舱和头等舱机票",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdmRiTFQyOFg4UHQwcEtvR2d3RWdKYnlFV0ZRSmVNeFVUbjR5NEN1M0NPRDhFUkFUYU1CWmRJNC14MGh4ZUR4WXdqMjhVclpBNEl6T21UMzRRWHN3UnExc3cyVXlDT2xwVXNzVFB0RGtnM3ItanMwaFVVcXpzeEwtbkJ4RUVEMUhBbUlIVU9HTHlXZXNSUU9XRFZ2c3lvY2l0cU5pdy11LUpZR1B3UFhST2RrNFV4R2Y3SEkwRmt2RQ?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
     },
     {
       "id": "2cfde90dc1bc",
@@ -464,74 +464,32 @@
       "last_seen": "2026-11-19"
     },
     {
-      "id": "0ef8195af1ee",
-      "category": "电子产品",
-      "merchant": "Shopee",
-      "title": "Shopee 11.11 大促",
-      "offer": "全年最低价、最高 S$111 折扣券及抽取 Aion V 豪华 SUV 机会",
-      "conditions": "限 Shopee 11.11 活动期间",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNM1hSbWQ1OVF5TGZGVUFwQXdqeHlMTnhfVXc3bGYwNmFJSjA0VFdsWko4bHdxanRIaEhfZ19SSUQ2UUJsS1ExMnQ5TENsQUJJVVBlYVB4WTB6MTliZVdoaW9WRkg4WVFHZkJEWGNZRHM2M0NnLVE4V0wzX2dMQWl6S0h6d1FkdlUzaTVpVnFlYzBKNWtZTloxbmZ3R2hvTHZneVZtZm1DUk05WFY1bHVtSDBHb1dLUmNZQkRfTHNTajlnYUNrV0R5OEpZUDBtYnItRHR4Y3VQa2d6eFRXZ2VBTnNfdXl0Mm5Hd0N0TDlzbWdvclZUYXBEZ05aUk94c1JoNUI0WE96WmhKY3V3am9vYg?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
-    },
-    {
-      "id": "fac30f8a3d42",
-      "category": "酒店旅游",
-      "merchant": "PJ hotel",
-      "title": "PJ酒店推出周年庆餐饮优惠",
-      "offer": "周年庆期间推出餐饮优惠活动",
+      "id": "94b955d54314",
+      "category": "机票",
+      "merchant": "国泰航空",
+      "title": "国泰航空促销：赢取高达6,000里数及500美元礼券",
+      "offer": "最高可获得6,000亚洲万里通里数、500美元礼券，以及HeyMax转账10%额外奖励",
       "conditions": "",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPODlHQWZRdXhVNVlZV0YwOE1YV3FHU1BkXzVqSEFwS1NIWHdVZ29YNzRFaHZZMHp4aW51bklzT3pvbFZ0aUZyZFBTaldfVEo2NkdxLUxUWDR4X0VlZ09RVUx3WFBMTjhMQUlKR1ptMHVPdVBBNzFLMGlrQ2hLTWk2NHVsdW9KVGlabFVkWE91b252eEwzOE95b1hLNnhTVEE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdXRyTDlQSUItYVlRaXZpNUJpeDdFaE91R3ZkY29pQ3U4MmptNWhZdHB1TmY5WFNOWE5KWlY2RTAtTmF2aTlNZWIxMmVLWjltbWJGVU05SWs3bTlIcEFCLXZQVW5xekFlelA3TU9zb3QwRy1iS2NyaEs0WW5QczFjbnlkdzhyN0JYNUE?oc=5",
       "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
     },
     {
-      "id": "1e07f957995b",
-      "category": "酒店旅游",
-      "merchant": "Sino Hotels",
-      "title": "香港信和酒店推出双十一促销",
-      "offer": "旗下四家香港酒店推出双十一特惠促销",
+      "id": "b2e29cdb184d",
+      "category": "机票",
+      "merchant": "Trinity Airways",
+      "title": "Trinity Airways黑色星期五早鸟优惠",
+      "offer": "针对2027年旅行的早鸟折扣优惠",
       "conditions": "",
       "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNjQ2R2FZVDJlMlJ4VGFzTEk3eHAzRTdPM0pZNWFHM2dVTDRxbzhveHdzVGxBWnpXeV9FR1E1SVFzZUlndWplQVdBVjdsN1RVOHJ4VmNBd1lTWGpzN3IwcS10aUhsdTZMcmY5ZVNTR2xJclA2U3EydTdKb1ZHWFQzOU5MZ294dGNQbnlkZGV4YVgtaktmOFZBR0RScUZWeW9NR1JJ?oc=5",
+      "travel_period": "2027年",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOLVNRNWhVT0ZwMGhJOGdSQUdCcWJCaWJrdFRxd0JkbFdCalhSYmwwaGt3QlI5NEQ1YkU5M3BiQy13NW5CU1RvcXVHajJEdTBsc1FhalBFY25LSUdOeEp1dlhJUm5zTVZwdy10Y3ZKaG5FX1BEWGd3VmVubnBYejktTUJ4aTVWeHA3OTVRaU9pdVdsZ3ZqUGp2TXJzTlY4WTZqS3VoaGtfSGU0ZlU5dF9hUm9PcmNJSHpR?oc=5",
       "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
-    },
-    {
-      "id": "a4acff238703",
-      "category": "酒店旅游",
-      "merchant": "Amara Hotels & Resorts",
-      "title": "Amara酒店推出节庆度假最高65折优惠",
-      "offer": "新加坡、曼谷和上海的节庆度假村最高可享 35% 折扣（即 65 折）",
-      "conditions": "",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQUkphYjYyS1ZPX0NjZDM0d1BTVS1hQU4zQ3VUbERZby1oTlRWWGYtVHBINW1Gb0xmR0JWeThWdDNBbkw0cVNPNFRpR2RqVzNJV2g2X2thR1F2anJYQTk0OUlrSG5tTXNIYXRQM3AyT1ItRXBzNkVkbHAwVFJIdUtoWUdkckhaUVR1LXRIdXlZdkFKel96RXc3bnNnX0huWVZuS1M5VUFpajcxMi1LUEMyTkxXNE5nOGNBcVRWaXlFeXlBTWo5?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
-    },
-    {
-      "id": "55c615f5ed0f",
-      "category": "酒店旅游",
-      "merchant": "Expedia",
-      "title": "Expedia最后关头住宿预订最高省25%",
-      "offer": "最后关头住宿预订最高可节省 25%",
-      "conditions": "",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-10-31",
-      "last_seen": "2026-10-31"
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
     },
     {
       "id": "dbf65c442018",
@@ -756,6 +714,62 @@
       "link_checked": true,
       "first_seen": "2026-11-19",
       "last_seen": "2026-11-19"
+    },
+    {
+      "id": "b25853a4c492",
+      "category": "酒店旅游",
+      "merchant": "Kimpton Naluria Kuala Lumpur",
+      "title": "Kimpton Naluria 吉隆坡年终度假优惠",
+      "offer": "提供年终节日城市度假住宿优惠",
+      "conditions": "仅限年终期间",
+      "valid_until": null,
+      "travel_period": "年终",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeGdpemlGdVdIcHpNaGdnRDIyRlJTNkl1aEhnWUsyTkJQRGVFeW5QQ1BQYnNqWWozUFQxWlB0T01YY2hiWXp5bGozYjNIaUxlb0h0MDhsQkNyTlpSeTZQeEZVNlUzV3ZURDkwV3pwNkhyTWxXUW5QYVBUMDE2d3hIamY5eFF4QjBEZ2FqSE4xZVVkRmJudUp5RDJLSkh6T3dwN1h2RmQyU3E3SEtZSno4Um5sd05TdG9nR3VZ0gHAAUFVX3lxTE9GeWtGNGVjU1FxTV9sbFBiZlhXYTV0OURuTGRqeF81OXZVRTd2aG5mZkwxRnRnb3kzd3RIaml6Y3BUREtNQk1fMXpGRTJQbVNWem1RMUkyaVdBY191c1phQ1p0R1JyU2pEVE5sU3JXVDVvT2lBd0lHSFdaZGh5eTdaTUJPcndjSW8wZDZZa0tWUkw1bGs3eXIzMEttLWI1LVdXemlNcjFxLTJYOXgwaE9sZ093bGtCbU1xUjRYZ2Jndw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
+    },
+    {
+      "id": "b87242b07684",
+      "category": "酒店旅游",
+      "merchant": "SAYS",
+      "title": "马来西亚长者年终折扣与优惠",
+      "offer": "提供11项年终折扣与优惠",
+      "conditions": "仅限长者",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQkFiNllPM3ZPdXltelpvc19vR0VIaXNrWEZiYTBWLVRnVktscEtqdG5DYXl0QW05TVYwUHhORGdYelBvdTEzdWk5MnB1cUFpZGc1ekFlZ1A4d3lfRXpYNjZmblZwODJna21EZVFEek5kaXpHblVwbDBYc19yS1pzRkhfUjhmNHdI?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
+    },
+    {
+      "id": "48045f203807",
+      "category": "酒店旅游",
+      "merchant": "Expedia",
+      "title": "Expedia 黑色星期五住宿优惠",
+      "offer": "指定住宿最高可享 50% 折扣",
+      "conditions": "仅限黑色星期五促销期间",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
+    },
+    {
+      "id": "b88abe12bc58",
+      "category": "酒店旅游",
+      "merchant": "吉隆坡公共交通",
+      "title": "吉隆坡推出七天无限次公共交通通行证",
+      "offer": "七天无限次搭乘公共交通",
+      "conditions": "仅限吉隆坡游客",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRURlY3ZRcEExdmQtZGwwUjZHQVlQVmlmUnk4UzlkRjRQVmpxYlFMOF9VVUJXRzQ2YWppSUpoMVJzTDBhRjJIQWJwVjV6QlNNWXI4cExWY1UyZklWdXVkYjBodVVnRjY4WHh1eFM3M3BKQVdPdWtJNDNUdlhyQXl6VnN5TXdUdEJvTnJ0RlM5TVZHb2stRVlhemxudw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22"
     }
   ]
 }
