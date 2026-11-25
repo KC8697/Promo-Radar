@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T13:34+08:00",
+  "updated_at": "2026-11-25T15:28+08:00",
   "deals": [
     {
       "id": "146536da6d33",
@@ -42,6 +42,20 @@
       "link_checked": true,
       "first_seen": "2026-11-22",
       "last_seen": "2026-11-22"
+    },
+    {
+      "id": "ef6e6a764b33",
+      "category": "家私",
+      "merchant": "IKEA",
+      "title": "古晋 IKEA 开幕前夕送出 500 份免费礼品",
+      "offer": "500 份免费礼品",
+      "conditions": "在古晋 IKEA 开幕前夕的活动中获取",
+      "valid_until": "2026-11-27",
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY2hfOUgteXlydzhRYlNYaTFja0hNZHQzeEFqSlR2aHFET0lwNHltSHpZOS14Z2RGd19vNnQ3VVlXamYzdW80aEl3NnkyY2owOU85cU9WNDdqcWZiZE5qa3lTcmgwaEZwWUJzdTNjTHh5VVlLS0wwOFJ1VC0zdVZIeDNiQ3dlRGYxR3gtT2o1Wld1cC03dS1IdlRTYW1HUElMZmJNMTFzS2VtSUlsTnhvMTEzVVY2eUpjOHc?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25"
     },
     {
       "id": "c225b488a3cc",
@@ -296,48 +310,6 @@
       "last_seen": "2026-11-22"
     },
     {
-      "id": "2cfde90dc1bc",
-      "category": "机票",
-      "merchant": "AirAsia",
-      "title": "亚航新加坡出发航班最高 7 折",
-      "offer": "航班最高 7 折优惠，并享受免费更改日期费用豁免",
-      "conditions": "仅限新加坡出发的旅客",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaEwxVUlFWUFnV2UxOVBsR3RDRXF5VEo5dlU3ZVQ3UVVrM3NxdDVNZ2o4MWlwZ3V0TS1ERDlJTEdnVTFtN1BRckczbGJTa1hMTXVzOExodjd5RnliLUFZdmNMOUhVTWhjS0kxSTF4TkpGdEtnUXE1eUcta3JUTDRHLUVkMGtvT0ZnLTVaaEdNcy15NWZJWVVYWGFJaEpScy1XZ0I1VXJOdXg3ZE5pZE5vdE96V1B2ei0yM0xPd1hQNFppejJaUFY0?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
-    },
-    {
-      "id": "a70de8260049",
-      "category": "机票",
-      "merchant": "Singapore Airlines",
-      "title": "花旗Prestige卡订新航最高减S$480",
-      "offer": "最高立减 S$480",
-      "conditions": "使用 Citi Prestige 信用卡",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPV2JGdlhTb2czV0dlSjAtVHNUTDNZS0otQUZxRnNxM1Jxd2VtR2M0cEZ5Q1lla0RHWTlmblFfRUNIbDFEb3QwQUN2SjNyUGloMHJ1LWphNFQxZTBLYnEwajNTR3lzeTZmZElVaEFza2J3WTFXU1FoQWxJNFEzRnliSVFZbGlTal9OV1NOQ2lPMA?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
-    },
-    {
-      "id": "b817aaad28c3",
-      "category": "机票",
-      "merchant": "Singapore Airlines",
-      "title": "新加坡航空商务舱与头等舱最高减S$480",
-      "offer": "最高立减 S$480",
-      "conditions": "适用于商务舱和头等舱机票",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNdmRiTFQyOFg4UHQwcEtvR2d3RWdKYnlFV0ZRSmVNeFVUbjR5NEN1M0NPRDhFUkFUYU1CWmRJNC14MGh4ZUR4WXdqMjhVclpBNEl6T21UMzRRWHN3UnExc3cyVXlDT2xwVXNzVFB0RGtnM3ItanMwaFVVcXpzeEwtbkJ4RUVEMUhBbUlIVU9HTHlXZXNSUU9XRFZ2c3lvY2l0cU5pdy11LUpZR1B3UFhST2RrNFV4R2Y3SEkwRmt2RQ?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
-    },
-    {
       "id": "0840930355df",
       "category": "机票",
       "merchant": "Batik Air",
@@ -492,46 +464,18 @@
       "last_seen": "2026-11-22"
     },
     {
-      "id": "dbf65c442018",
-      "category": "酒店旅游",
-      "merchant": "PJ hotel",
-      "title": "八打灵再也酒店推出周年餐饮优惠",
-      "offer": "周年餐饮优惠",
-      "conditions": "",
+      "id": "e812c277ae03",
+      "category": "机票",
+      "merchant": "新加坡航空",
+      "title": "新加坡航空黑五促销活动",
+      "offer": "特价机票优惠",
+      "conditions": "从新加坡出发",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPODlHQWZRdXhVNVlZV0YwOE1YV3FHU1BkXzVqSEFwS1NIWHdVZ29YNzRFaHZZMHp4aW51bklzT3pvbFZ0aUZyZFBTaldfVEo2NkdxLUxUWDR4X0VlZ09RVUx3WFBMTjhMQUlKR1ptMHVPdVBBNzFLMGlrQ2hLTWk2NHVsdW9KVGlabFVkWE91b252eEwzOE95b1hLNnhTVEE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQdDdFLUJaZ09WMG9ZMUgtbGFhV2FtWHlWX09JUXJNUktpVnQwZlVWcFhBSS1yV1RRWlJfd1NsVTNyb3pFSmxJZWFqQ1NHb2ZyUlREMDM1R3NMN3lnbHBuUUdwYVE0Uy1UNjRrM2YydlVoaGhMTV9JcnBSYkZBa0luZWV1MHdMX2dzUFBrRlRKLXlYbUFXekphMmJOVFlmWGlEVE0yVU5zYTl2djk5Z1Z3R1VvMmdZZkVMNU9QYVp5SHVJb3NiZ0VueTRVaXZKX0ZPcHJPLVhzRjBaOFdINENqR3hrZWkwb2ZsQk1IcnBlY3FGdXJUUFQ3b01Lb1N6S19aMUlv?oc=5",
       "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
-    },
-    {
-      "id": "8b99489d9e71",
-      "category": "酒店旅游",
-      "merchant": "Booking.com",
-      "title": "Booking.com 假期优惠",
-      "offer": "节省 15% 或更多",
-      "conditions": "适用于指定假期度假预订",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxON1RqNlRmQzdodElsb2ZsSVdJY3dBNU5hSFB6SjAwWkNfMEotWm83SWs0OHJlbnF5MVFGUHpmMS0wdlFyRlZBcFFvUVlLdUFGMlV6Y0tjd2NuMTRMVFNYVkVDbWZ3MTBpUHhEbURxakNuQnNRbXhpNDhCeERDSjdQTWpqN3E0Snd4WDZPNUNR?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
-    },
-    {
-      "id": "c68e03b3371c",
-      "category": "酒店旅游",
-      "merchant": "Expedia",
-      "title": "Expedia 最后一刻住宿优惠",
-      "offer": "节省高达 25%",
-      "conditions": "适用于最后一刻住宿预订",
-      "valid_until": null,
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUUNOcG0wbDBZdGoyQ0l1eHV1SHVTRDZQNkdWZDFKbl90MXlPa3V3emswRWhONUJybi1pVDMwMnctMl9GNVNjazlUbHI3RWVMTlVzYTNxZGh2aGJ2QnNzeE9Ub1lXcFpNR240VV9RRTJZSzMwa0xXXzBpdTVOSW01OWduY0kxdDFk?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-01",
-      "last_seen": "2026-11-01"
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25"
     },
     {
       "id": "3a5ee3f150bf",
@@ -770,6 +714,48 @@
       "link_checked": true,
       "first_seen": "2026-11-22",
       "last_seen": "2026-11-22"
+    },
+    {
+      "id": "f5956eedd96d",
+      "category": "酒店旅游",
+      "merchant": "OZO Hotels",
+      "title": "OZO Hotels 泰国与马来西亚节日促销",
+      "offer": "提供节日主题的住宿体验与优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "节日期间",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRU1sYUJFVVd1ZnZFQ2F3d04zNElnRUFUbzhjQjRkODZuX1EwOXZwZlRaWGhialExemRrYlNSalVtUWljOE5mLXF5NW1tV1V4TGdUaTJ6anJqWmZkdkYwS2dXVzBhTUV6dEpTQmZ3Vkh1S0h5LTB1M2xzenF5TnVibE0wTjFORS1USVc3M2dwbzZIQWhhSjJERDZoVk84UmJaMmt1UkttMmtBNlNqcVVWYlN0a0FkTGp4?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25"
+    },
+    {
+      "id": "046161ccb014",
+      "category": "酒店旅游",
+      "merchant": "Kimpton Naluria Kuala Lumpur",
+      "title": "Kimpton Naluria 吉隆坡年终住宿优惠",
+      "offer": "提供年终城市度假住宿配套",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "年终期间",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeGdpemlGdVdIcHpNaGdnRDIyRlJTNkl1aEhnWUsyTkJQRGVFeW5QQ1BQYnNqWWozUFQxWlB0T01YY2hiWXp5bGozYjNIaUxlb0h0MDhsQkNyTlpSeTZQeEZVNlUzV3ZURDkwV3pwNkhyTWxXUW5QYVBUMDE2d3hIamY5eFF4QjBEZ2FqSE4xZVVkRmJudUp5RDJLSkh6T3dwN1h2RmQyU3E3SEtZSno4Um5sd05TdG9nR3VZ0gHAAUFVX3lxTE9GeWtGNGVjU1FxTV9sbFBiZlhXYTV0OURuTGRqeF81OXZVRTd2aG5mZkwxRnRnb3kzd3RIaml6Y3BUREtNQk1fMXpGRTJQbVNWem1RMUkyaVdBY191c1phQ1p0R1JyU2pEVE5sU3JXVDVvT2lBd0lHSFdaZGh5eTdaTUJPcndjSW8wZDZZa0tWUkw1bGs3eXIzMEttLWI1LVdXemlNcjFxLTJYOXgwaE9sZ093bGtCbU1xUjRYZ2Jndw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25"
+    },
+    {
+      "id": "5dabd74163f5",
+      "category": "酒店旅游",
+      "merchant": "Radisson Hotel Chateau de Bangkok",
+      "title": "曼谷 Radisson Hotel 节日优惠",
+      "offer": "推出节日期间的特别住宿优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "节日期间",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxONnZfOEdNZU55ellRa2hEVHFFcmh6bFdZcnpoUE9Idk9UdlJxM21GSzRYU2pqanVBNXA2em5tM0pMOTRLOHA0aHN2T3lTYlZIZlFfdHI0bzB4b3FIVXlLaEV4Qng1UTRQZF85NGpwR2pSTE1PWjByalY5VF80SlNyemlBZzh1SVA2eXhMaVloSEpFQ1h6?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25"
     }
   ]
 }
