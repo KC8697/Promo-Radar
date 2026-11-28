@@ -1,62 +1,6 @@
 {
-  "updated_at": "2026-11-25T15:28+08:00",
+  "updated_at": "2026-11-28T14:45+08:00",
   "deals": [
-    {
-      "id": "146536da6d33",
-      "category": "家私",
-      "merchant": "IKEA",
-      "title": "古晋 IKEA 将于 11 月 27 日开业",
-      "offer": "提供与西马相同的价格出售 5,000 件家居用品",
-      "conditions": "限古晋分店",
-      "valid_until": "2026-11-27",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLUgycmxQMUpSVmdydnNhX3JtaGRKQlo5R2V4c3dZdmlGYUFyZmhnVGRKd3VGOU1UVHBlYjRGNExHOXM2Uno1cUh6eXlyWVVsWWFicUdPUFc3RkEtdzRNV05wWmFRMGtaZ3pnYkpvNkJINFhFMnQxTzBVNWpxNHdNU3BNazB0XzVITEQ1U3NmZzZJWDhDQS16Z3FTbHFidUltTWppNHN3R09nZXZZamc4?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-04",
-      "last_seen": "2026-11-04"
-    },
-    {
-      "id": "83c7b94f14e2",
-      "category": "家私",
-      "merchant": "IKEA Kuching",
-      "title": "IKEA 古晋店开幕前夕送出 500 份赠品",
-      "offer": "送出 500 份免费赠品",
-      "conditions": "配合 11 月 27 日古晋店开幕活动",
-      "valid_until": "2026-11-27",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY2hfOUgteXlydzhRYlNYaTFja0hNZHQzeEFqSlR2aHFET0lwNHltSHpZOS14Z2RGd19vNnQ3VVlXamYzdW80aEl3NnkyY2owOU85cU9WNDdqcWZiZE5qa3lTcmgwaEZwWUJzdTNjTHh5VVlLS0wwOFJ1VC0zdVZIeDNiQ3dlRGYxR3gtT2o1Wld1cC03dS1IdlRTYW1HUElMZmJNMTFzS2VtSUlsTnhvMTEzVVY2eUpjOHc?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19"
-    },
-    {
-      "id": "f0cbccb83cb2",
-      "category": "家私",
-      "merchant": "IKEA Kuching",
-      "title": "IKEA 古晋店开幕赠送礼品",
-      "offer": "500 份免费礼品",
-      "conditions": "需在开幕期间前往古晋店",
-      "valid_until": "2026-11-27",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY2hfOUgteXlydzhRYlNYaTFja0hNZHQzeEFqSlR2aHFET0lwNHltSHpZOS14Z2RGd19vNnQ3VVlXamYzdW80aEl3NnkyY2owOU85cU9WNDdqcWZiZE5qa3lTcmgwaEZwWUJzdTNjTHh5VVlLS0wwOFJ1VC0zdVZIeDNiQ3dlRGYxR3gtT2o1Wld1cC03dS1IdlRTYW1HUElMZmJNMTFzS2VtSUlsTnhvMTEzVVY2eUpjOHc?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22"
-    },
-    {
-      "id": "ef6e6a764b33",
-      "category": "家私",
-      "merchant": "IKEA",
-      "title": "古晋 IKEA 开幕前夕送出 500 份免费礼品",
-      "offer": "500 份免费礼品",
-      "conditions": "在古晋 IKEA 开幕前夕的活动中获取",
-      "valid_until": "2026-11-27",
-      "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY2hfOUgteXlydzhRYlNYaTFja0hNZHQzeEFqSlR2aHFET0lwNHltSHpZOS14Z2RGd19vNnQ3VVlXamYzdW80aEl3NnkyY2owOU85cU9WNDdqcWZiZE5qa3lTcmgwaEZwWUJzdTNjTHh5VVlLS0wwOFJ1VC0zdVZIeDNiQ3dlRGYxR3gtT2o1Wld1cC03dS1IdlRTYW1HUElMZmJNMTFzS2VtSUlsTnhvMTEzVVY2eUpjOHc?oc=5",
-      "link_checked": true,
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25"
-    },
     {
       "id": "c225b488a3cc",
       "category": "机票",
@@ -310,18 +254,18 @@
       "last_seen": "2026-11-22"
     },
     {
-      "id": "0840930355df",
-      "category": "机票",
-      "merchant": "Batik Air",
-      "title": "Batik Air 推出商务舱买一送一优惠",
-      "offer": "商务舱机票买一送一",
-      "conditions": "",
+      "id": "739e2d0f66b6",
+      "category": "家私",
+      "merchant": "IKEA Malaysia",
+      "title": "IKEA 古晋店开业，全马统一售价",
+      "offer": "全马统一售价，无需额外支付运费或溢价",
+      "conditions": "适用于马来西亚全国 IKEA 门店",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2RLWEtHNVBadmdqWENlenJFQ2x6eGpTZkhwS1BYS19Jdzk2YmlXeFM0S3B3bFJtdnhVc2FpYTZFM3Z6Z1lTNmJtVUJ3aEwyTDBMbWhLamxUbEhXZDNlSS0zTFZJVThlVklPeF8wTlQtOHFnRW8xMERIeHc2dC1iSDFONnJrRUwxdkQySFVQVFhfb3kza2JZRlpNS2dHNzJLdVRJQnlzMEJSTDZFM2tiRHAtREh4bTQwRnlIOA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxORnlVZG1sdzZ0c3Q4dXdVOFJlMkg2SXpDYmxRcC1kWVlxNFgzQTcyQjBvc3U1VXNYeVFzUlVMV1dmQW1xWXlic1hJR2JrU2NSalR0SG9NdEFESUJRTVdjSHNlZXJmLWhqSFdWSVE3WlQ4T1JEX2pfcGZWSjg5RmwxMGRNbGUyUW5keWJRRDg3SFVWckxFRnJEMTdaSmxTbDU4cTN3aGlfVFVQSHJXRHV2d0wxd1BOU2J1MjA00gGuAUFVX3lxTFAyTk9uNzBGbHNKLWc2SW9NZlFXM25tTGIxTzI3UTlZeF9JVFhnSkN2MUc0S0cyQ0VyOVlDT3lnUWN5Q2x1X2g3MFk0cnlHXzBrX1RLdmRUYVBHZlRqTlUzVVIybGJLWTN0UUxUQTRMZHZRZ2xHQ28zbk96Ty1OcWdwZlF1a295SFVQNFlhc1NMc1BoZ05IMWZLeTRYenNUSXAtOVBHVlJvUXh2MlE0dw?oc=5",
       "link_checked": true,
-      "first_seen": "2026-11-04",
-      "last_seen": "2026-11-04"
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
     },
     {
       "id": "6cac35a4a2b0",
@@ -478,18 +422,60 @@
       "last_seen": "2026-11-25"
     },
     {
-      "id": "3a5ee3f150bf",
-      "category": "酒店旅游",
-      "merchant": "Amara Hotels & Resorts",
-      "title": "新加坡、曼谷和上海节日度假优惠",
-      "offer": "节日度假最高可享 35% 折扣",
-      "conditions": "适用于新加坡、曼谷和上海的指定酒店",
+      "id": "10648849b43e",
+      "category": "机票",
+      "merchant": "AirAsia",
+      "title": "亚航东盟航线机票优惠",
+      "offer": "机票价格从 RM119 起",
+      "conditions": "适用于东盟航线",
+      "valid_until": null,
+      "travel_period": "即日起至 2027-10-31",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOWlkMDZqdVBTSzlFdExPdUFKb1o2anhGcG5Sc1N4eUFXY2RsXzJrT2cyS3BpV3FXR2xBVGFyOVVLUUlpS0Q2X3JDempwdU9UVzZpc2Q3dFp0eW1HMzJ4WnpyWWUyclpxdTBsOElvZHQzdjV2NWpOZ0cwZXl6dVBVYnlGbU4wSGp4RWVTVm1CSDFUaTVSVFQtSTlIMjVlYkJOZ1VvUzZ2MXplUQ?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "b1c17e92e960",
+      "category": "机票",
+      "merchant": "EaseMyTrip",
+      "title": "EaseMyTrip 冬季嘉年华促销",
+      "offer": "提供年底旅游优惠",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "年底",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNMHdZdVRTVGFqWTBLVVk2UFdaR3ctQjNFMk5DSkF5ZUF2LW1HVGtMZWQ3RDJYU0h4TTQzX3NaNF9ONGtxTkFFWnBRcl9jOXlVb3F5aWhOLVNRaXpRTFV0WEJQdi1WSHNVQUFRakxpeUdvYXVGb2hXVEk1OXZURlRJT1IwRDBQQ3VlbC1TbFh0ZTM2UDQtYlNFUnlGUzNBNy1QeTR5RndyZUtYR0NGWURKQm9tUzJFMkt2R1plQnIwQVJZZw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "cf29bd4b9ca4",
+      "category": "机票",
+      "merchant": "AFFIN Bank",
+      "title": "AFFIN 信用卡持卡人享经济舱买一送一",
+      "offer": "经济舱机票买一送一",
+      "conditions": "仅限 AFFIN 银行信用卡持卡人",
       "valid_until": null,
       "travel_period": "",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQUkphYjYyS1ZPX0NjZDM0d1BTVS1hQU4zQ3VUbERZby1oTlRWWGYtVHBINW1Gb0xmR0JWeThWdDNBbkw0cVNPNFRpR2RqVzNJV2g2X2thR1F2anJYQTk0OUlrSG5tTXNIYXRQM3AyT1ItRXBzNkVkbHAwVFJIdUtoWUdkckhaUVR1LXRIdXlZdkFKel96RXc3bnNnX0huWVZuS1M5VUFpajcxMi1LUEMyTkxXNE5nOGNBcVRWaXlFeXlBTWo5?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdUp2ajdJMEJDLVVIV3ZvTjVfNFlMd2tCTF9RTG5mZXJqMUJMbXBKNHk5SE41M0lySi1pcmROQVhlZ1diSnhHNEFSVWVKQjgwNUxxU0ozYi1xS25fQ1R4Q1VhVE9JZ2drVElFT3hXRWl0Qnh2MTdyY05PeGRSWXB2THc1Um1VVHlGaUNLMWsyeldEbS1DR25OUzRrbkpSV3JBUm82b09ERE5BcXN4UzFaWktR?oc=5",
       "link_checked": true,
-      "first_seen": "2026-11-04",
-      "last_seen": "2026-11-04"
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "70a524e23b01",
+      "category": "机票",
+      "merchant": "新加坡航空",
+      "title": "新加坡航空黑色星期五机票促销",
+      "offer": "机票特价优惠",
+      "conditions": "黑色星期五促销",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQdDdFLUJaZ09WMG9ZMUgtbGFhV2FtWHlWX09JUXJNUktpVnQwZlVWcFhBSS1yV1RRWlJfd1NsVTNyb3pFSmxJZWFqQ1NHb2ZyUlREMDM1R3NMN3lnbHBuUUdwYVE0Uy1UNjRrM2YydlVoaGhMTV9JcnBSYkZBa0luZWV1MHdMX2dzUFBrRlRKLXlYbUFXekphMmJOVFlmWGlEVE0yVU5zYTl2djk5Z1Z3R1VvMmdZZkVMNU9QYVp5SHVJb3NiZ0VueTRVaXZKX0ZPcHJPLVhzRjBaOFdINENqR3hrZWkwb2ZsQk1IcnBlY3FGdXJUUFQ3b01Lb1N6S19aMUlv?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
     },
     {
       "id": "ca0a11c69410",
@@ -713,7 +699,7 @@
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRURlY3ZRcEExdmQtZGwwUjZHQVlQVmlmUnk4UzlkRjRQVmpxYlFMOF9VVUJXRzQ2YWppSUpoMVJzTDBhRjJIQWJwVjV6QlNNWXI4cExWY1UyZklWdXVkYjBodVVnRjY4WHh1eFM3M3BKQVdPdWtJNDNUdlhyQXl6VnN5TXdUdEJvTnJ0RlM5TVZHb2stRVlhemxudw?oc=5",
       "link_checked": true,
       "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22"
+      "last_seen": "2026-11-28"
     },
     {
       "id": "f5956eedd96d",
@@ -756,6 +742,76 @@
       "link_checked": true,
       "first_seen": "2026-11-25",
       "last_seen": "2026-11-25"
+    },
+    {
+      "id": "39f949ed5524",
+      "category": "酒店旅游",
+      "merchant": "OZO Hotels",
+      "title": "OZO酒店推出泰国与马来西亚节日住宿优惠",
+      "offer": "节日期间住宿优惠",
+      "conditions": "适用于泰国及马来西亚的OZO酒店",
+      "valid_until": null,
+      "travel_period": "节日期间",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRU1sYUJFVVd1ZnZFQ2F3d04zNElnRUFUbzhjQjRkODZuX1EwOXZwZlRaWGhialExemRrYlNSalVtUWljOE5mLXF5NW1tV1V4TGdUaTJ6anJqWmZkdkYwS2dXVzBhTUV6dEpTQmZ3Vkh1S0h5LTB1M2xzenF5TnVibE0wTjFORS1USVc3M2dwbzZIQWhhSjJERDZoVk84UmJaMmt1UkttMmtBNlNqcVVWYlN0a0FkTGp4?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "c065d208e90b",
+      "category": "酒店旅游",
+      "merchant": "Kimpton Naluria Kuala Lumpur",
+      "title": "吉隆坡金普顿酒店年终城市度假优惠",
+      "offer": "年终住宿配套",
+      "conditions": "适用于年终假期",
+      "valid_until": null,
+      "travel_period": "年终",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeGdpemlGdVdIcHpNaGdnRDIyRlJTNkl1aEhnWUsyTkJQRGVFeW5QQ1BQYnNqWWozUFQxWlB0T01YY2hiWXp5bGozYjNIaUxlb0h0MDhsQkNyTlpSeTZQeEZVNlUzV3ZURDkwV3pwNkhyTWxXUW5QYVBUMDE2d3hIamY5eFF4QjBEZ2FqSE4xZVVkRmJudUp5RDJLSkh6T3dwN1h2RmQyU3E3SEtZSno4Um5sd05TdG9nR3VZ0gHAAUFVX3lxTE9GeWtGNGVjU1FxTV9sbFBiZlhXYTV0OURuTGRqeF81OXZVRTd2aG5mZkwxRnRnb3kzd3RIaml6Y3BUREtNQk1fMXpGRTJQbVNWem1RMUkyaVdBY191c1phQ1p0R1JyU2pEVE5sU3JXVDVvT2lBd0lHSFdaZGh5eTdaTUJPcndjSW8wZDZZa0tWUkw1bGs3eXIzMEttLWI1LVdXemlNcjFxLTJYOXgwaE9sZ093bGtCbU1xUjRYZ2Jndw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "475aba051fa2",
+      "category": "酒店旅游",
+      "merchant": "Padma Hotels",
+      "title": "Padma酒店庆祝活动：12天节日庆典",
+      "offer": "12天节日庆典特别活动",
+      "conditions": "",
+      "valid_until": null,
+      "travel_period": "节日期间",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLVY5cFJneHJFYWt2RkRtSGJpV0NiSHFjdy1UUVRsQXRsaVdWNGJkRW94dHVzTlJDOG50MDdzTWhIcGVDRjRqZDRNR1hVVk1oNklHY2tGLXc1blJaYWxoRU1kajRYWVlIWWpGT0pJdkxsUFk0MTVUNU9wNXl4Zk1jZk1FWnljVUNTNXhqSnZDR2cyMVlBc1Z0RUNWNXU0Q2JWMWVSeXRPME1PUktyUjc0YzBVLXFOdW8?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "414b44874c5d",
+      "category": "酒店旅游",
+      "merchant": "Accor Live Limitless",
+      "title": "雅高酒店集团会员住宿奖励促销",
+      "offer": "每次住宿可获5,000积分",
+      "conditions": "需为Accor Live Limitless会员",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9fWTNRa0dYMFhzalJUa1ktaWtNSlFzdDN5Ukcyam5NTVhfR2xwUGFsVXVOaWJzV3NMeDI0aGJCZHhyQUk3RlRkdzI3aHBwdEFnTG9pX0Mzc256Z0ZlTFRSZw?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
+    },
+    {
+      "id": "ee23377670d9",
+      "category": "酒店旅游",
+      "merchant": "Wise",
+      "title": "Wise海外消费赢取高达RM10,000现金",
+      "offer": "赢取最高RM10,000现金奖励",
+      "conditions": "需在海外使用Wise消费",
+      "valid_until": null,
+      "travel_period": "",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOT1Rla080RnNDS0FaWmxwOGtlWnFCcFBDSVpyTXlZZWlTTzAzVjlWRDkzLUtXRXRIWF9DbmM5cjJUcWx1Q3BmMVdiVEVOaVltM2FQMVkyWGRUTFNNV2pGOFFnaF9xNEpVcVNEcUlUMm5wbXlkRC13VkFvakJFVWxNdzhfeHp4aTZFQXhUTThfVHQ0d21IRXplRXN3RE5hdElPVjlj?oc=5",
+      "link_checked": true,
+      "first_seen": "2026-11-28",
+      "last_seen": "2026-11-28"
     }
   ]
 }
